@@ -1,0 +1,161 @@
+[ {
+  "uid" : "b8ff62ea953ec95a",
+  "name" : "test_successful_login[chrome]",
+  "time" : {
+    "start" : 1622460057392,
+    "stop" : 1622460071679,
+    "duration" : 14287
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4f39ef331cc5bb0b",
+  "name" : "test_unsuccessful_login[chrome-232@3746-sdjfh]",
+  "time" : {
+    "start" : 1622460054253,
+    "stop" : 1622460054375,
+    "duration" : 122
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7c9523a4d7f2a56d",
+  "name" : "test_unsuccessful_login[chrome-ron-ron]",
+  "time" : {
+    "start" : 1622460055328,
+    "stop" : 1622460055834,
+    "duration" : 506
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "edf22e8aa107865d",
+  "name" : "test_unsuccessful_login[chrome-tom-tom]",
+  "time" : {
+    "start" : 1622460054785,
+    "stop" : 1622460055319,
+    "duration" : 534
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dd74a5226aecf9bb",
+  "name" : "test_unsuccessful_login[chrome-admin-admin]",
+  "time" : {
+    "start" : 1622460054382,
+    "stop" : 1622460054776,
+    "duration" : 394
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c8388aeaee70b9bd",
+  "name" : "test_unsuccessful_login[chrome- or 1=1 -- --1212]",
+  "time" : {
+    "start" : 1622460055843,
+    "stop" : 1622460056353,
+    "duration" : 510
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bd013471652ac222",
+  "name" : "test_unsuccessful_login[chrome-fttt-ft]",
+  "time" : {
+    "start" : 1622460054018,
+    "stop" : 1622460054244,
+    "duration" : 226
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a932ec8186e18d6f",
+  "name" : "test_unsuccessful_login[chrome-admin\")-or \"1\"=\"1\"/*]",
+  "time" : {
+    "start" : 1622460056881,
+    "stop" : 1622460057383,
+    "duration" : 502
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "45ed97cc1ffa6989",
+  "name" : "test_availability_of_page_elements[chrome]",
+  "time" : {
+    "start" : 1622460046699,
+    "stop" : 1622460047014,
+    "duration" : 315
+  },
+  "status" : "passed",
+  "severity" : "critical"
+}, {
+  "uid" : "e60ba9c52df3c1ea",
+  "name" : "test_sign_up_link[chrome]",
+  "time" : {
+    "start" : 1622460047021,
+    "stop" : 1622460052338,
+    "duration" : 5317
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "125ba89886ac86b8",
+  "name" : "test_unsuccessful_login[chrome-roshan@ur.co.nz-8374GkJGF';]",
+  "time" : {
+    "start" : 1622460053459,
+    "stop" : 1622460054010,
+    "duration" : 551
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9df50d3a637bb6a4",
+  "name" : "test_switching_to_list_view[chrome]",
+  "time" : {
+    "start" : 1622460035514,
+    "stop" : 1622460040919,
+    "duration" : 5405
+  },
+  "status" : "passed",
+  "severity" : "critical"
+}, {
+  "uid" : "d03dcd007ff95c56",
+  "name" : "test_unsuccessful_login[chrome-ft-34#435;'/.]",
+  "time" : {
+    "start" : 1622460052937,
+    "stop" : 1622460053451,
+    "duration" : 514
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "19c5ef1515e8ac83",
+  "name" : "test_forgot_password_link[chrome]",
+  "time" : {
+    "start" : 1622460052346,
+    "stop" : 1622460052930,
+    "duration" : 584
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dd53b63dbe6ef06c",
+  "name" : "test_unsuccessful_login[chrome-admin'-1'='1'/*]",
+  "time" : {
+    "start" : 1622460056363,
+    "stop" : 1622460056872,
+    "duration" : 509
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4ee42fc7874a1e9b",
+  "name" : "test_sign_out[chrome]",
+  "time" : {
+    "start" : 1622460040945,
+    "stop" : 1622460041562,
+    "duration" : 617
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

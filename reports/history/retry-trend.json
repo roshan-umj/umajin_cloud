@@ -1,0 +1,9 @@
+[ {
+  "buildOrder" : 10,
+  "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure",
+  "reportName" : "AllureReport",
+  "data" : {
+    "run" : 16,
+    "retry" : 56
+  }
+} ]

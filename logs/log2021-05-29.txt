@@ -1,0 +1,60 @@
+2021-05-29 22:31:11,235 - project_list.py:[17] [INFO] Signing out from the currently logged in account
+7,037 - user_sign_in_page.py:[24] [INFO] User signed in. Username: ft Password: 34#435;'/.
+2021-05-29 22:30:47,071 - user_sign_in_page.py:[20] [INFO] User sign in test started
+2021-05-29 22:30:47,614 - user_sign_in_page.py:[24] [INFO] User signed in. Username: roshan@ur.co.nz Password: 8374GkJGF';
+2021-05-29 22:30:47,635 - user_sign_in_page.py:[20] [INFO] User sign in test started
+2021-05-29 22:30:48,141 - user_sign_in_page.py:[24] [INFO] User signed in. Username: fttt Password: ft
+2021-05-29 22:30:48,162 - user_sign_in_page.py:[20] [INFO] User sign in test started
+2021-05-29 22:30:48,656 - user_sign_in_page.py:[24] [INFO] User signed in. Username: 232@3746 Password: sdjfh
+2021-05-29 22:30:48,680 - user_sign_in_page.py:[20] [INFO] User sign in test started
+2021-05-29 22:30:49,169 - user_sign_in_page.py:[24] [INFO] User signed in. Username: admin Password: admin
+2021-05-29 22:30:49,190 - user_sign_in_page.py:[20] [INFO] User sign in test started
+2021-05-29 22:30:49,702 - user_sign_in_page.py:[24] [INFO] User signed in. Username: tom Password: tom
+2021-05-29 22:30:49,723 - user_sign_in_page.py:[20] [INFO] User sign in test started
+2021-05-29 22:30:50,218 - user_sign_in_page.py:[24] [INFO] User signed in. Username: ron Password: ron
+2021-05-29 22:30:50,242 - user_sign_in_page.py:[20] [INFO] User sign in test started
+2021-05-29 22:30:50,752 - user_sign_in_page.py:[24] [INFO] User signed in. Username:  or 1=1 -- - Password: 1212
+2021-05-29 22:30:50,774 - user_sign_in_page.py:[20] [INFO] User sign in test started
+2021-05-29 22:30:51,306 - user_sign_in_page.py:[24] [INFO] User signed in. Username: admin' Password: 1'='1'/*
+2021-05-29 22:30:51,330 - user_sign_in_page.py:[20] [INFO] User sign in test started
+2021-05-29 22:30:51,840 - user_sign_in_page.py:[24] [INFO] User signed in. Username: admin") Password: or "1"="1"/*
+2021-05-29 22:30:51,875 - user_sign_in_page.py:[20] [INFO] User sign in test started
+2021-05-29 22:31:10,653 - user_sign_in_page.py:[24] [INFO] User signed in. Username: roshan@ur.co.nz Password: umajin@001
+
+2021-05-29 22:30:47,721 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_username. Value entered: fttt
+2021-05-29 22:30:47,803 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_password. Value entered: ft
+2021-05-29 22:30:48,141 - umajin_cloud_base_page.py:[33] [INFO] Clicking on an element: btn_sign_in
+2021-05-29 22:30:48,142 - umajin_cloud_base_page.py:[116] [INFO] Checking availability of element: lbl_login_failed
+2021-05-29 22:30:48,247 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_username. Value entered: 232@3746
+2021-05-29 22:30:48,327 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_password. Value entered: sdjfh
+2021-05-29 22:30:48,655 - umajin_cloud_base_page.py:[33] [INFO] Clicking on an element: btn_sign_in
+2021-05-29 22:30:48,656 - umajin_cloud_base_page.py:[116] [INFO] Checking availability of element: lbl_login_failed
+2021-05-29 22:30:48,766 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_username. Value entered: admin
+2021-05-29 22:30:48,855 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_password. Value entered: admin
+2021-05-29 22:30:49,169 - umajin_cloud_base_page.py:[33] [INFO] Clicking on an element: btn_sign_in
+2021-05-29 22:30:49,169 - umajin_cloud_base_page.py:[116] [INFO] Checking availability of element: lbl_login_failed
+2021-05-29 22:30:49,278 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_username. Value entered: tom
+2021-05-29 22:30:49,363 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_password. Value entered: tom
+2021-05-29 22:30:49,701 - umajin_cloud_base_page.py:[33] [INFO] Clicking on an element: btn_sign_in
+2021-05-29 22:30:49,702 - umajin_cloud_base_page.py:[116] [INFO] Checking availability of element: lbl_login_failed
+2021-05-29 22:30:49,801 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_username. Value entered: ron
+2021-05-29 22:30:49,886 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_password. Value entered: ron
+2021-05-29 22:30:50,217 - umajin_cloud_base_page.py:[33] [INFO] Clicking on an element: btn_sign_in
+2021-05-29 22:30:50,218 - umajin_cloud_base_page.py:[116] [INFO] Checking availability of element: lbl_login_failed
+2021-05-29 22:30:50,334 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_username. Value entered:  or 1=1 -- -
+2021-05-29 22:30:50,415 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_password. Value entered: 1212
+2021-05-29 22:30:50,752 - umajin_cloud_base_page.py:[33] [INFO] Clicking on an element: btn_sign_in
+2021-05-29 22:30:50,752 - umajin_cloud_base_page.py:[116] [INFO] Checking availability of element: lbl_login_failed
+2021-05-29 22:30:50,857 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_username. Value entered: admin'
+2021-05-29 22:30:50,950 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_password. Value entered: 1'='1'/*
+2021-05-29 22:30:51,305 - umajin_cloud_base_page.py:[33] [INFO] Clicking on an element: btn_sign_in
+2021-05-29 22:30:51,306 - umajin_cloud_base_page.py:[116] [INFO] Checking availability of element: lbl_login_failed
+2021-05-29 22:30:51,415 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_username. Value entered: admin")
+2021-05-29 22:30:51,507 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_password. Value entered: or "1"="1"/*
+2021-05-29 22:30:51,839 - umajin_cloud_base_page.py:[33] [INFO] Clicking on an element: btn_sign_in
+2021-05-29 22:30:51,840 - umajin_cloud_base_page.py:[116] [INFO] Checking availability of element: lbl_login_failed
+2021-05-29 22:30:51,978 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_username. Value entered: roshan@ur.co.nz
+2021-05-29 22:30:52,081 - umajin_cloud_base_page.py:[55] [INFO] Typing in an element: txt_password. Value entered: umajin@001
+2021-05-29 22:31:10,652 - umajin_cloud_base_page.py:[33] [INFO] Clicking on an element: btn_sign_in
+2021-05-29 22:31:10,653 - umajin_cloud_base_page.py:[156] [INFO] Getting the page title of : <selenium.webdriver.chrome.webdriver.WebDriver (session="e3e7c87762fe90627480fc7e87cff4e6")>
+2021-05-29 22:31:11,235 - umajin_cloud_base_page.py:[33] [INFO] Clicking on an element: btn_sign_out

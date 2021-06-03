@@ -1,0 +1,148 @@
+{
+  "uid" : "491d595d9046c9b9",
+  "name" : "test_unsuccessful_login[chrome-admin\")-or \"1\"=\"1\"/*]",
+  "fullName" : "test_cases.test_user_sign_in.Test_UserSignIn#test_unsuccessful_login",
+  "historyId" : "7ae848f1feeeecb18d5153137db7528c",
+  "time" : {
+    "start" : 1622322043798,
+    "stop" : 1622322044454,
+    "duration" : 656
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "add_logs_on_failure",
+    "time" : {
+      "start" : 1622322043796,
+      "stop" : 1622322043797,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "get_browser",
+    "time" : {
+      "start" : 1622322020670,
+      "stop" : 1622322030892,
+      "duration" : 10222
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "4466bd8c2d001dfb",
+      "name" : "log",
+      "source" : "4466bd8c2d001dfb.txt",
+      "type" : "text/plain",
+      "size" : 675
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 1
+  },
+  "afterStages" : [ {
+    "name" : "add_logs_on_failure::0",
+    "time" : {
+      "start" : 1622322044458,
+      "stop" : 1622322044458,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "get_browser::0",
+    "time" : {
+      "start" : 1622322057971,
+      "stop" : 1622322060263,
+      "duration" : 2292
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "Cloud Login"
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.usefixtures('add_logs_on_failure', 'get_browser')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "test_cases"
+  }, {
+    "name" : "suite",
+    "value" : "test_user_sign_in"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_UserSignIn"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-57RCRK3"
+  }, {
+    "name" : "thread",
+    "value" : "3784-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_cases.test_user_sign_in"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "get_browser",
+    "value" : "'chrome'"
+  }, {
+    "name" : "password",
+    "value" : "'or \"1\"=\"1\"/*'"
+  }, {
+    "name" : "username",
+    "value" : "'admin\")'"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.usefixtures('add_logs_on_failure', 'get_browser')" ]
+  },
+  "source" : "491d595d9046c9b9.json",
+  "parameterValues" : [ "'chrome'", "'or \"1\"=\"1\"/*'", "'admin\")'" ]
+}

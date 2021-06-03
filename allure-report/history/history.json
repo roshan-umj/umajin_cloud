@@ -1,0 +1,466 @@
+{
+  "9c0cd91f9629f157f5d7cd606c3e3ddb" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "b8ff62ea953ec95a",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/b8ff62ea953ec95a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460057392,
+        "stop" : 1622460071679,
+        "duration" : 14287
+      }
+    }, {
+      "uid" : "be9019758425eb1e",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/be9019758425eb1e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460057392,
+        "stop" : 1622460071679,
+        "duration" : 14287
+      }
+    } ]
+  },
+  "fc4cb4affa6d0122455f5278596562a6" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "dd74a5226aecf9bb",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/dd74a5226aecf9bb",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460054382,
+        "stop" : 1622460054776,
+        "duration" : 394
+      }
+    }, {
+      "uid" : "b40ddba1f306dd6a",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/b40ddba1f306dd6a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460054382,
+        "stop" : 1622460054776,
+        "duration" : 394
+      }
+    } ]
+  },
+  "89985330dc7680763510e9ebdf3718e9" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "19c5ef1515e8ac83",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/19c5ef1515e8ac83",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460052346,
+        "stop" : 1622460052930,
+        "duration" : 584
+      }
+    }, {
+      "uid" : "80c23a61767e7bb8",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/80c23a61767e7bb8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460052346,
+        "stop" : 1622460052930,
+        "duration" : 584
+      }
+    } ]
+  },
+  "7ae848f1feeeecb18d5153137db7528c" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "a932ec8186e18d6f",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/a932ec8186e18d6f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460056881,
+        "stop" : 1622460057383,
+        "duration" : 502
+      }
+    }, {
+      "uid" : "fea1d7cf2161948d",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/fea1d7cf2161948d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460056881,
+        "stop" : 1622460057383,
+        "duration" : 502
+      }
+    } ]
+  },
+  "026d1b19305e781982dce2db5f902d3a" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "dd53b63dbe6ef06c",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/dd53b63dbe6ef06c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460056363,
+        "stop" : 1622460056872,
+        "duration" : 509
+      }
+    }, {
+      "uid" : "b924205ff3302800",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/b924205ff3302800",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460056363,
+        "stop" : 1622460056872,
+        "duration" : 509
+      }
+    } ]
+  },
+  "e0e3aff5653fecaa97e74cb53d1deb1c" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "45ed97cc1ffa6989",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/45ed97cc1ffa6989",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460046699,
+        "stop" : 1622460047014,
+        "duration" : 315
+      }
+    }, {
+      "uid" : "2b35424bd80a8777",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/2b35424bd80a8777",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460046699,
+        "stop" : 1622460047014,
+        "duration" : 315
+      }
+    } ]
+  },
+  "1b4c229aa4a59534a2cbb76a68ab08f5" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "125ba89886ac86b8",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/125ba89886ac86b8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460053459,
+        "stop" : 1622460054010,
+        "duration" : 551
+      }
+    }, {
+      "uid" : "2a2be40d454e050c",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/2a2be40d454e050c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460053459,
+        "stop" : 1622460054010,
+        "duration" : 551
+      }
+    } ]
+  },
+  "2c2626598a52618999f833b036198faa" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "c8388aeaee70b9bd",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/c8388aeaee70b9bd",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460055843,
+        "stop" : 1622460056353,
+        "duration" : 510
+      }
+    }, {
+      "uid" : "f53e28e1ff1980d1",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/f53e28e1ff1980d1",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460055843,
+        "stop" : 1622460056353,
+        "duration" : 510
+      }
+    } ]
+  },
+  "89c0959294ef27960fc3d1d59718fc59" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "7c9523a4d7f2a56d",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/7c9523a4d7f2a56d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460055328,
+        "stop" : 1622460055834,
+        "duration" : 506
+      }
+    }, {
+      "uid" : "68d92049c5e8f655",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/68d92049c5e8f655",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460055328,
+        "stop" : 1622460055834,
+        "duration" : 506
+      }
+    } ]
+  },
+  "6e8d58fafb308add8dbe5b478ff5582b" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "9df50d3a637bb6a4",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/9df50d3a637bb6a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460035514,
+        "stop" : 1622460040919,
+        "duration" : 5405
+      }
+    }, {
+      "uid" : "271c8a8af72e0b41",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/271c8a8af72e0b41",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460035514,
+        "stop" : 1622460040919,
+        "duration" : 5405
+      }
+    } ]
+  },
+  "4b7838c67916d5b4e988ff2db08a9fa0" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "d03dcd007ff95c56",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/d03dcd007ff95c56",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460052937,
+        "stop" : 1622460053451,
+        "duration" : 514
+      }
+    }, {
+      "uid" : "8133bee81da4e222",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/8133bee81da4e222",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460052937,
+        "stop" : 1622460053451,
+        "duration" : 514
+      }
+    } ]
+  },
+  "a45a1c8e33397b18ec6304831e6f7007" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "edf22e8aa107865d",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/edf22e8aa107865d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460054785,
+        "stop" : 1622460055319,
+        "duration" : 534
+      }
+    }, {
+      "uid" : "c3114bdac27df27e",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/c3114bdac27df27e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460054785,
+        "stop" : 1622460055319,
+        "duration" : 534
+      }
+    } ]
+  },
+  "bce06524281788a71e00192f5e087f3f" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "bd013471652ac222",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/bd013471652ac222",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460054018,
+        "stop" : 1622460054244,
+        "duration" : 226
+      }
+    }, {
+      "uid" : "1012e7591de19d3",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/1012e7591de19d3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460054018,
+        "stop" : 1622460054244,
+        "duration" : 226
+      }
+    } ]
+  },
+  "0757c8f6dc643b40392c4e89d9f1bf1f" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "4f39ef331cc5bb0b",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/4f39ef331cc5bb0b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460054253,
+        "stop" : 1622460054375,
+        "duration" : 122
+      }
+    }, {
+      "uid" : "692a1c4e8a971000",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/692a1c4e8a971000",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460054253,
+        "stop" : 1622460054375,
+        "duration" : 122
+      }
+    } ]
+  },
+  "17e819cee498b1aec5a8314cdc82f026" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "4ee42fc7874a1e9b",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/4ee42fc7874a1e9b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460040945,
+        "stop" : 1622460041562,
+        "duration" : 617
+      }
+    }, {
+      "uid" : "94213a65b0a83e9c",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/94213a65b0a83e9c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460040945,
+        "stop" : 1622460041562,
+        "duration" : 617
+      }
+    } ]
+  },
+  "a48256ca591ac82a3bf998080a791d6a" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    },
+    "items" : [ {
+      "uid" : "e60ba9c52df3c1ea",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure/#testresult/e60ba9c52df3c1ea",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460047021,
+        "stop" : 1622460052338,
+        "duration" : 5317
+      }
+    }, {
+      "uid" : "9b42f064876c11e0",
+      "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/9b42f064876c11e0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622460047021,
+        "stop" : 1622460052338,
+        "duration" : 5317
+      }
+    } ]
+  }
+}

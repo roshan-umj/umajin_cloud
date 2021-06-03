@@ -1,0 +1,148 @@
+{
+  "uid" : "1066f5742e4fd3b6",
+  "name" : "test_unsuccessful_login[chrome-fttt-ft]",
+  "fullName" : "test_cases.test_user_sign_in.Test_UserSignIn#test_unsuccessful_login",
+  "historyId" : "bce06524281788a71e00192f5e087f3f",
+  "time" : {
+    "start" : 1622283877643,
+    "stop" : 1622283878101,
+    "duration" : 458
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "get_browser",
+    "time" : {
+      "start" : 1622283873055,
+      "stop" : 1622283875991,
+      "duration" : 2936
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "add_logs_on_failure",
+    "time" : {
+      "start" : 1622283877642,
+      "stop" : 1622283877642,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "211fca327beaddb2",
+      "name" : "log",
+      "source" : "211fca327beaddb2.txt",
+      "type" : "text/plain",
+      "size" : 649
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 1
+  },
+  "afterStages" : [ {
+    "name" : "get_browser::0",
+    "time" : {
+      "start" : 1622283902191,
+      "stop" : 1622283904471,
+      "duration" : 2280
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "add_logs_on_failure::0",
+    "time" : {
+      "start" : 1622283878104,
+      "stop" : 1622283878104,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "story",
+    "value" : "Cloud Login"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.usefixtures('add_logs_on_failure', 'get_browser')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "test_cases"
+  }, {
+    "name" : "suite",
+    "value" : "test_user_sign_in"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_UserSignIn"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-57RCRK3"
+  }, {
+    "name" : "thread",
+    "value" : "4672-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_cases.test_user_sign_in"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "get_browser",
+    "value" : "'chrome'"
+  }, {
+    "name" : "password",
+    "value" : "'ft'"
+  }, {
+    "name" : "username",
+    "value" : "'fttt'"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "@pytest.mark.usefixtures('add_logs_on_failure', 'get_browser')" ]
+  },
+  "source" : "1066f5742e4fd3b6.json",
+  "parameterValues" : [ "'chrome'", "'ft'", "'fttt'" ]
+}

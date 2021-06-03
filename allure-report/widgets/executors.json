@@ -1,0 +1,10 @@
+[ {
+  "name" : "Jenkins",
+  "type" : "jenkins",
+  "url" : "http://localhost:8080/",
+  "buildOrder" : 11,
+  "buildName" : "Umajin Cloud #11",
+  "buildUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/",
+  "reportName" : "AllureReport",
+  "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/11/allure"
+} ]

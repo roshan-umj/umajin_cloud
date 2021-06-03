@@ -1,0 +1,233 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "test_cases",
+    "children" : [ {
+      "name" : "test_project_list",
+      "children" : [ {
+        "name" : "Test_ProjectList",
+        "children" : [ {
+          "name" : "test_switching_to_list_view[chrome]",
+          "uid" : "9df50d3a637bb6a4",
+          "parentUid" : "7958136762a2c0f96b84eb1f4bf6a027",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460035514,
+            "stop" : 1622460040919,
+            "duration" : 5405
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'" ]
+        }, {
+          "name" : "test_sign_out[chrome]",
+          "uid" : "4ee42fc7874a1e9b",
+          "parentUid" : "7958136762a2c0f96b84eb1f4bf6a027",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460040945,
+            "stop" : 1622460041562,
+            "duration" : 617
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'" ]
+        } ],
+        "uid" : "7958136762a2c0f96b84eb1f4bf6a027"
+      } ],
+      "uid" : "fc54a999c1766b93fc4f2821c481d9f8"
+    }, {
+      "name" : "test_user_sign_in",
+      "children" : [ {
+        "name" : "Test_UserSignIn",
+        "children" : [ {
+          "name" : "test_availability_of_page_elements[chrome]",
+          "uid" : "45ed97cc1ffa6989",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460046699,
+            "stop" : 1622460047014,
+            "duration" : 315
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'" ]
+        }, {
+          "name" : "test_sign_up_link[chrome]",
+          "uid" : "e60ba9c52df3c1ea",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460047021,
+            "stop" : 1622460052338,
+            "duration" : 5317
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'" ]
+        }, {
+          "name" : "test_forgot_password_link[chrome]",
+          "uid" : "19c5ef1515e8ac83",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460052346,
+            "stop" : 1622460052930,
+            "duration" : 584
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'" ]
+        }, {
+          "name" : "test_unsuccessful_login[chrome-ft-34#435;'/.]",
+          "uid" : "d03dcd007ff95c56",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460052937,
+            "stop" : 1622460053451,
+            "duration" : 514
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'", "'34#435;'/.'", "'ft'" ]
+        }, {
+          "name" : "test_unsuccessful_login[chrome-roshan@ur.co.nz-8374GkJGF';]",
+          "uid" : "125ba89886ac86b8",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460053459,
+            "stop" : 1622460054010,
+            "duration" : 551
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'", "'8374GkJGF';'", "'roshan@ur.co.nz'" ]
+        }, {
+          "name" : "test_unsuccessful_login[chrome-fttt-ft]",
+          "uid" : "bd013471652ac222",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460054018,
+            "stop" : 1622460054244,
+            "duration" : 226
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'", "'ft'", "'fttt'" ]
+        }, {
+          "name" : "test_unsuccessful_login[chrome-232@3746-sdjfh]",
+          "uid" : "4f39ef331cc5bb0b",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460054253,
+            "stop" : 1622460054375,
+            "duration" : 122
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'", "'sdjfh'", "'232@3746'" ]
+        }, {
+          "name" : "test_unsuccessful_login[chrome-admin-admin]",
+          "uid" : "dd74a5226aecf9bb",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460054382,
+            "stop" : 1622460054776,
+            "duration" : 394
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'", "'admin'", "'admin'" ]
+        }, {
+          "name" : "test_unsuccessful_login[chrome-tom-tom]",
+          "uid" : "edf22e8aa107865d",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460054785,
+            "stop" : 1622460055319,
+            "duration" : 534
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'", "'tom'", "'tom'" ]
+        }, {
+          "name" : "test_unsuccessful_login[chrome-ron-ron]",
+          "uid" : "7c9523a4d7f2a56d",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460055328,
+            "stop" : 1622460055834,
+            "duration" : 506
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'", "'ron'", "'ron'" ]
+        }, {
+          "name" : "test_unsuccessful_login[chrome- or 1=1 -- --1212]",
+          "uid" : "c8388aeaee70b9bd",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460055843,
+            "stop" : 1622460056353,
+            "duration" : 510
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'", "1212", "' or 1=1 -- -'" ]
+        }, {
+          "name" : "test_unsuccessful_login[chrome-admin'-1'='1'/*]",
+          "uid" : "dd53b63dbe6ef06c",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460056363,
+            "stop" : 1622460056872,
+            "duration" : 509
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'", "'1'='1'/*'", "'admin''" ]
+        }, {
+          "name" : "test_unsuccessful_login[chrome-admin\")-or \"1\"=\"1\"/*]",
+          "uid" : "a932ec8186e18d6f",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460056881,
+            "stop" : 1622460057383,
+            "duration" : 502
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'", "'or \"1\"=\"1\"/*'", "'admin\")'" ]
+        }, {
+          "name" : "test_successful_login[chrome]",
+          "uid" : "b8ff62ea953ec95a",
+          "parentUid" : "3a95e3cf3462cc5a5f2fbc5aac22934a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1622460057392,
+            "stop" : 1622460071679,
+            "duration" : 14287
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "'chrome'" ]
+        } ],
+        "uid" : "3a95e3cf3462cc5a5f2fbc5aac22934a"
+      } ],
+      "uid" : "3d28b0d2fb50c47e75d9c77d4a86d9a4"
+    } ],
+    "uid" : "10075452c99ff4a1bfbce955ca922247"
+  } ]
+}

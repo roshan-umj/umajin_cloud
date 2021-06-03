@@ -1,0 +1,6 @@
+2021-05-25 22:32:10,040 - umajin_cloud_base_page.py:[50] [INFO] Typing in an element: txt_username. Value entered: roshan@ur.co.nz
+2021-05-25 22:32:10,113 - umajin_cloud_base_page.py:[50] [INFO] Typing in an element: txt_password. Value entered: umajin@001
+2021-05-25 22:32:31,932 - umajin_cloud_base_page.py:[29] [INFO] Clicking on an element: btn_submit
+2021-05-25 22:32:35,194 - umajin_cloud_base_page.py:[50] [INFO] Typing in an element: txt_username. Value entered: testman@umajin.cim
+2021-05-25 22:32:35,270 - umajin_cloud_base_page.py:[50] [INFO] Typing in an element: txt_password. Value entered: umajin
+2021-05-25 22:32:35,670 - umajin_cloud_base_page.py:[29] [INFO] Clicking on an element: btn_submit

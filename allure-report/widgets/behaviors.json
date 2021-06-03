@@ -1,0 +1,26 @@
+{
+  "total" : 5,
+  "items" : [ {
+    "uid" : "3655d68c7c660434e0bff9d7a01ff223",
+    "name" : "Cloud Login",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 11,
+      "unknown" : 0,
+      "total" : 11
+    }
+  }, {
+    "uid" : "a03a3b6057b4d7569140f876327b168e",
+    "name" : "Cloud Login Test",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    }
+  } ]
+}

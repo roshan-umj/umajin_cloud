@@ -1,0 +1,36 @@
+from pages.umajin_cloud_base_page import UmajinCloudBase
+import pages.user_login_page as  login
+import logging
+from utilities.logger import Logger
+
+log = Logger(__name__, logging.INFO)
+
+
+class ProjectList(UmajinCloudBase):
+    def __init__(self, driver):
+        super().__init__(driver=driver)
+        self.driver = driver
+
+    def sign_out(self):
+        """Signs out from the currently logged in account
+        """
+        self.click(locator="btn_sign_out")
+        log.logger.info("Signing out from the currently logged in account")
+        return login.Login(self.driver)
+
+    def switch_view(self, view: str):
+        """Switches between grid view and list view
+
+        :param view: name of the view. Values accepted: 'Grid View' or 'List View'
+        """
+        if view == 'Grid View':
+            self.click(locator="btn_grid_view")
+            log.logger.info("Switching the project list to grid view")
+        else:
+            self.click(locator="btn_list_view")
+            log.logger.info("Switching the project list to list view")
+
+    def get_projects_count(self, locator: str):
+        pass
+
+

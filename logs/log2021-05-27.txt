@@ -1,0 +1,11 @@
+2021-05-27 12:05:06,940 - umajin_cloud_base_page.py:[117] [INFO] Checking availability of element: lbl_page_heading
+2021-05-27 12:05:06,958 - umajin_cloud_base_page.py:[117] [INFO] Checking availability of element: txt_username
+2021-05-27 12:05:06,972 - umajin_cloud_base_page.py:[117] [INFO] Checking availability of element: txt_password
+2021-05-27 12:05:06,985 - umajin_cloud_base_page.py:[117] [INFO] Checking availability of element: lbl_username
+2021-05-27 12:05:06,997 - umajin_cloud_base_page.py:[117] [INFO] Checking availability of element: lbl_password
+2021-05-27 12:05:07,010 - umajin_cloud_base_page.py:[117] [INFO] Checking availability of element: btn_sign_in
+2021-05-27 12:05:07,023 - umajin_cloud_base_page.py:[117] [INFO] Checking availability of element: btn_sign_up
+2021-05-27 12:05:07,036 - umajin_cloud_base_page.py:[117] [INFO] Checking availability of element: btn_forgot_password
+2021-05-27 12:05:07,049 - umajin_cloud_base_page.py:[140] [INFO] Getting text of element: lbl_page_heading
+2021-05-27 12:05:07,081 - umajin_cloud_base_page.py:[140] [INFO] Getting text of element: lbl_username
+2021-05-27 12:05:07,112 - umajin_cloud_base_page.py:[140] [INFO] Getting text of element: lbl_password

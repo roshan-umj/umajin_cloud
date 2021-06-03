@@ -1,0 +1,2 @@
+INFO     pages.umajin_cloud_base_page:umajin_cloud_base_page.py:33 Clicking on an element: btn_sign_out
+INFO     pages.project_list:project_list.py:17 Signing out from the currently logged in account

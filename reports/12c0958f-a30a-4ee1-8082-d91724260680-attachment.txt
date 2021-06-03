@@ -1,0 +1,8 @@
+INFO     pages.user_sign_in_page:user_sign_in_page.py:20 User sign in test started
+INFO     pages.umajin_cloud_base_page:umajin_cloud_base_page.py:55 Typing in an element: txt_username. Value entered: roshan@ur.co.nz
+INFO     pages.umajin_cloud_base_page:umajin_cloud_base_page.py:55 Typing in an element: txt_password. Value entered: umajin@001
+INFO     pages.umajin_cloud_base_page:umajin_cloud_base_page.py:33 Clicking on an element: btn_sign_in
+INFO     pages.user_sign_in_page:user_sign_in_page.py:24 User signed in. Username: roshan@ur.co.nz Password: umajin@001
+INFO     pages.umajin_cloud_base_page:umajin_cloud_base_page.py:156 Getting the page title of : <selenium.webdriver.chrome.webdriver.WebDriver (session="8a5fa97fd6df200c4bb04d1390984f47")>
+INFO     pages.umajin_cloud_base_page:umajin_cloud_base_page.py:33 Clicking on an element: btn_sign_out
+INFO     pages.project_list:project_list.py:17 Signing out from the currently logged in account

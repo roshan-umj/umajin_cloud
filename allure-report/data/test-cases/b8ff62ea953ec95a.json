@@ -1,0 +1,202 @@
+{
+  "uid" : "b8ff62ea953ec95a",
+  "name" : "test_successful_login[chrome]",
+  "fullName" : "test_cases.test_user_sign_in.Test_UserSignIn#test_successful_login",
+  "historyId" : "9c0cd91f9629f157f5d7cd606c3e3ddb",
+  "time" : {
+    "start" : 1622460057392,
+    "stop" : 1622460071679,
+    "duration" : 14287
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "add_logs_on_failure",
+    "time" : {
+      "start" : 1622460057391,
+      "stop" : 1622460057391,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "get_browser",
+    "time" : {
+      "start" : 1622460043740,
+      "stop" : 1622460046697,
+      "duration" : 2957
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "63b8cfa388a358c2",
+      "name" : "log",
+      "source" : "63b8cfa388a358c2.txt",
+      "type" : "text/plain",
+      "size" : 907
+    }, {
+      "uid" : "565eb66db8fc038d",
+      "name" : "stdout",
+      "source" : "565eb66db8fc038d.txt",
+      "type" : "text/plain",
+      "size" : 24
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2
+  },
+  "afterStages" : [ {
+    "name" : "add_logs_on_failure::0",
+    "time" : {
+      "start" : 1622460071680,
+      "stop" : 1622460071680,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "get_browser::0",
+    "time" : {
+      "start" : 1622460071682,
+      "stop" : 1622460073870,
+      "duration" : 2188
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "Cloud Login"
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "tag",
+    "value" : "@pytest.mark.usefixtures('add_logs_on_failure', 'get_browser')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "test_cases"
+  }, {
+    "name" : "suite",
+    "value" : "test_user_sign_in"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_UserSignIn"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-57RCRK3"
+  }, {
+    "name" : "thread",
+    "value" : "9200-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_cases.test_user_sign_in"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "get_browser",
+    "value" : "'chrome'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "60d78deb3ea624ce",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622322044466,
+        "stop" : 1622322057968,
+        "duration" : 13502
+      }
+    }, {
+      "uid" : "4fe8129e0b5ad958",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622284251864,
+        "stop" : 1622284271236,
+        "duration" : 19372
+      }
+    }, {
+      "uid" : "a82dec3b4a1fe101",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622284087248,
+        "stop" : 1622284104943,
+        "duration" : 17695
+      }
+    }, {
+      "uid" : "5aac23753e1166a8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1622283881376,
+        "stop" : 1622283901357,
+        "duration" : 19981
+      }
+    } ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "be9019758425eb1e",
+        "reportUrl" : "http://localhost:8080/job/Umajin%20Cloud/10/allure/#testresult/be9019758425eb1e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1622460057392,
+          "stop" : 1622460071679,
+          "duration" : 14287
+        }
+      } ]
+    },
+    "tags" : [ "@pytest.mark.usefixtures('add_logs_on_failure', 'get_browser')" ]
+  },
+  "source" : "b8ff62ea953ec95a.json",
+  "parameterValues" : [ "'chrome'" ]
+}
