@@ -1,0 +1,6 @@
+2021-06-04 09:39:45,680 - project_list.py:[18] [INFO] Signing out from the currently logged in account
+561 - user_login_page.py:[24] [INFO] User signed in. Username: roshan@ur.co.nz Password: umajin@001
+ an element: txt_password. Value entered: umajin@001
+2021-06-04 09:39:34,560 - umajin_cloud_base_page.py:[40] [INFO] Clicking on an element: btn_sign_in
+2021-06-04 09:39:34,986 - umajin_cloud_base_page.py:[40] [INFO] Clicking on an element: btn_list_view
+2021-06-04 09:39:45,680 - umajin_cloud_base_page.py:[40] [INFO] Clicking on an element: btn_sign_out

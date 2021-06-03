@@ -51,7 +51,7 @@ class Test_UserSignIn(BaseTest):
     @allure.story("Cloud Login")
     @allure.severity(allure.severity_level.NORMAL)
     @pytest.mark.parametrize("username, password",
-                             spreadsheet_data_provider.get_records(workbook_name="data_sheets\\user_credentials.xlsx",
+                             spreadsheet_data_provider.get_records(workbook_name="data_sheets/user_credentials.xlsx",
                                                                    sheet_name="invalid_logins"))
     def test_unsuccessful_login(self, username, password):
         login_page = login.Login(self.driver)
@@ -62,7 +62,7 @@ class Test_UserSignIn(BaseTest):
     @allure.story("Cloud Login")
     @allure.severity(allure.severity_level.NORMAL)
     def test_successful_login(self):
-        random_login = spreadsheet_data_provider.get_random_record(workbook_name="data_sheets\\user_credentials.xlsx",
+        random_login = spreadsheet_data_provider.get_random_record(workbook_name="data_sheets/user_credentials.xlsx",
                                                                    sheet_name="valid_logins")
         login_page = login.Login(self.driver)
         project_list = login_page.log_in(random_login["username"], random_login["password"])

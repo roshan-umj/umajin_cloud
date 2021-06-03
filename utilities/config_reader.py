@@ -9,7 +9,7 @@ def read(section, key):
     :return: value of the given key
 
     """
-    config_file = "configuration_data\\conf.ini"
+    config_file = "configuration_data/conf.ini"
     config = ConfigParser()
     config.read(filenames=config_file)
     return config.get(section=section, option=key)
