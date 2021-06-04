@@ -1,6 +1,0 @@
-INFO     pages.user_sign_in_page:user_sign_in_page.py:20 User sign in test started
-INFO     pages.umajin_cloud_base_page:umajin_cloud_base_page.py:55 Typing in an element: txt_username. Value entered:  or 1=1 -- -
-INFO     pages.umajin_cloud_base_page:umajin_cloud_base_page.py:55 Typing in an element: txt_password. Value entered: 1212
-INFO     pages.umajin_cloud_base_page:umajin_cloud_base_page.py:33 Clicking on an element: btn_sign_in
-INFO     pages.user_sign_in_page:user_sign_in_page.py:24 User signed in. Username:  or 1=1 -- - Password: 1212
-INFO     pages.umajin_cloud_base_page:umajin_cloud_base_page.py:116 Checking availability of element: lbl_login_failed
