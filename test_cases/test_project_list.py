@@ -23,7 +23,6 @@ class Test_ProjectList(BaseTest):
         project_list = ProjectList(self.driver)
         project_list.click("btn_list_view")
         time.sleep(10)
-        print("test")
 
     def test_sign_out(self):
         project_list = ProjectList(self.driver)

@@ -1,7 +1,0 @@
-2021-05-26 17:00:46,668 - umajin_cloud_base_page.py:[51] [INFO] Typing in an element: 2021-05-26 17:01:02,791 - user_sign_in_page.py:[23] [INFO] User sign in test completed
-2021-05-26 17:01:06,655 - user_sign_in_page.py:[19] [INFO] User sign in test started
-2021-05-26 17:01:07,308 - user_sign_in_page.py:[23] [INFO] User sign in test completed
-tn_submit
-2021-05-26 17:01:06,794 - umajin_cloud_base_page.py:[51] [INFO] Typing in an element: txt_username. Value entered: testman@umajin.cim
-2021-05-26 17:01:06,901 - umajin_cloud_base_page.py:[51] [INFO] Typing in an element: txt_password. Value entered: umajin
-2021-05-26 17:01:07,308 - umajin_cloud_base_page.py:[30] [INFO] Clicking on an element: btn_submit

@@ -2,7 +2,7 @@ from pages.umajin_cloud_base_page import UmajinCloudBase
 import logging
 from utilities.logger import Logger
 
-log = Logger(__name__, logging.INFO)
+log = Logger(__name__)
 
 
 class HomePage(UmajinCloudBase):
@@ -24,5 +24,5 @@ class HomePage(UmajinCloudBase):
         self.send_keys(locator="sel_signup_industry", value=industry)
         self.click(locator="btn_signup_submit")
 
-        log.logger.info(f"Signing up the user: {first_name} {last_name}")
+        log.info(f"sign up the user: {first_name} {last_name}")
 

@@ -28,7 +28,7 @@ class Test_HomePage(BaseTest):
         random_country = random.choice(country_list[1:])
 
         industry_list = home_page.get_options_list_from_select("sel_signup_industry")
-        random_industry = random.choice(country_list[1:])
+        random_industry = random.choice(industry_list[1:])
 
 
         home_page.sign_up(first_name="Umajin",
@@ -37,8 +37,3 @@ class Test_HomePage(BaseTest):
                           company="Umajin",
                           country=random_country,
                           industry=random_industry)
-        time.sleep(10)
-
-    def test_sign_out(self):
-        project_list = ProjectList(self.driver)
-        project_list.sign_out()

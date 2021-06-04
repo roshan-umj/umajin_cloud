@@ -3,7 +3,7 @@ from pages.project_list import ProjectList
 import logging
 from utilities.logger import Logger
 
-log = Logger(__name__, logging.INFO)
+log = Logger(__name__)
 
 class Login(UmajinCloudBase):
     def __init__(self, driver):
@@ -16,12 +16,12 @@ class Login(UmajinCloudBase):
         :param username: username or email address
         :param password: password
         """
+        log.info("go to login page")
         # the locator should be available under the given section in configuration_data/config.ini
-        log.logger.info("User sign in test started")
         self.send_keys(locator="txt_username", value=username)
         self.send_keys(locator="txt_password", value=password)
         self.click(locator="btn_sign_in")
-        log.logger.info(f"User signed in. Username: {username} Password: {password}")
+        log.logger.info(f"attempt to sign in. username: {username} password: {password}")
         return ProjectList(driver=self.driver)
 
 

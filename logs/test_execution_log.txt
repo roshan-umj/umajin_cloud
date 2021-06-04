@@ -1,0 +1,12 @@
+2021-06-05 00:01:08,936 - C:\Users\UR\PycharmProjects\umajin_cloud_test\utilities\logger.py:[33] [INFO] initializing chrome
+2021-06-05 00:01:10,641 - C:\Users\UR\PycharmProjects\umajin_cloud_test\utilities\logger.py:[33] [INFO] go to login page
+2021-06-05 00:01:10,729 - C:\Users\UR\PycharmProjects\umajin_cloud_test\utilities\logger.py:[30] [DEBUG] type in txt_username. value: ft
+2021-06-05 00:01:10,810 - C:\Users\UR\PycharmProjects\umajin_cloud_test\utilities\logger.py:[30] [DEBUG] type in txt_password. value: ft
+2021-06-05 00:01:28,702 - C:\Users\UR\PycharmProjects\umajin_cloud_test\utilities\logger.py:[30] [DEBUG] click on btn_sign_in
+2021-06-05 00:01:28,702 - C:\Users\UR\PycharmProjects\umajin_cloud_test\pages\user_login_page.py:[24] [INFO] attempt to sign in. username: ft password: ft
+2021-06-05 00:01:28,702 - C:\Users\UR\PycharmProjects\umajin_cloud_test\utilities\logger.py:[30] [DEBUG] get page title
+2021-06-05 00:01:29,432 - C:\Users\UR\PycharmProjects\umajin_cloud_test\utilities\logger.py:[30] [DEBUG] click on btn_sign_out
+2021-06-05 00:01:29,433 - C:\Users\UR\PycharmProjects\umajin_cloud_test\pages\project_list.py:[18] [INFO] Signing out from the currently logged in account
+2021-06-05 00:01:29,433 - C:\Users\UR\PycharmProjects\umajin_cloud_test\utilities\logger.py:[30] [DEBUG] checking availability of lbl_logout_successful_msg
+2021-06-05 00:01:30,749 - C:\Users\UR\PycharmProjects\umajin_cloud_test\utilities\logger.py:[30] [DEBUG] lbl_logout_successful_msg found on the page!
+2021-06-05 00:01:32,906 - C:\Users\UR\PycharmProjects\umajin_cloud_test\utilities\logger.py:[33] [INFO] chrome closed
