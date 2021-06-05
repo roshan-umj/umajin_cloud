@@ -1,12 +1,9 @@
-import time
-
 import allure
 import pytest
 import random
-
+import utilities.test_cases as test_cases
 from pages.umajin_website_home_page import HomePage
 from pages.user_login_page import Login
-from pages.project_list import ProjectList
 from test_cases.base_test import BaseTest
 
 
@@ -19,8 +16,9 @@ def navigate_to_project_list(request):
 @pytest.mark.usefixtures("navigate_to_project_list")
 class Test_HomePage(BaseTest):
 
-    @allure.severity(allure.severity_level.CRITICAL)
-    @allure.story("Cloud Login Test")
+    @allure.story(test_cases.get_test_case("test_sign_up").story)
+    @allure.title(test_cases.get_test_case("test_sign_up").display_name)
+    @allure.severity(test_cases.get_test_case("test_sign_up").severity)
     def test_sign_up(self):
         home_page = HomePage(self.driver)
 
@@ -29,7 +27,6 @@ class Test_HomePage(BaseTest):
 
         industry_list = home_page.get_options_list_from_select("sel_signup_industry")
         random_industry = random.choice(industry_list[1:])
-
 
         home_page.sign_up(first_name="Umajin",
                           last_name="Test User",

@@ -22,8 +22,6 @@ def get_records(workbook_name, sheet_name):
             data = sheet.cell(row=row, column=column).value
             column_data.append(data)
         records.append(column_data)
-    print(records)
-    print(random.choice(records))
     return records
 
 

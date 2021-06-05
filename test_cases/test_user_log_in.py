@@ -4,13 +4,15 @@ import allure
 import pytest
 import pages.user_login_page as login
 from utilities import spreadsheet_data_provider
+from utilities import test_cases as test_cases
 from test_cases.base_test import BaseTest
 
 
 class Test_UserSignIn(BaseTest):
 
-    @allure.severity(allure.severity_level.CRITICAL)
-    @allure.story("Cloud Login Test")
+    @allure.story(test_cases.get_test_case("test_availability_of_page_elements").story)
+    @allure.title(test_cases.get_test_case("test_availability_of_page_elements").display_name)
+    @allure.severity(test_cases.get_test_case("test_availability_of_page_elements").severity)
     def test_availability_of_page_elements(self):
         login_page = login.Login(self.driver)
         assert login_page.check_if_element_exists("lbl_login_page_heading"), "Page heading is not available"
@@ -35,21 +37,27 @@ class Test_UserSignIn(BaseTest):
 
         assert login_page.get_page_title() == "Umajin Cloud"
 
+    @allure.story(test_cases.get_test_case("test_sign_up_link").story)
+    @allure.title(test_cases.get_test_case("test_sign_up_link").display_name)
+    @allure.severity(test_cases.get_test_case("test_sign_up_link").severity)
     def test_sign_up_link(self):
         login_page = login.Login(self.driver)
         login_page.click("btn_sign_up")
         assert self.driver.current_url == "https://www.umajin.com/#download" and self.driver.title == "Umajin Home - Umajin", "Sign up page link or page title did not match"
         self.driver.back()
 
+    @allure.story(test_cases.get_test_case("test_forgot_password_link").story)
+    @allure.title(test_cases.get_test_case("test_forgot_password_link").display_name)
+    @allure.severity(test_cases.get_test_case("test_forgot_password_link").severity)
     def test_forgot_password_link(self):
         login_page = login.Login(self.driver)
         login_page.click("btn_forgot_password")
         assert self.driver.current_url == "https://cloud.umajin.com/reset_password.php" and self.driver.title == "Umajin Cloud", "'Forgot password?' link page title or url did not match"
         self.driver.back()
 
-
-    @allure.story("Cloud Login")
-    @allure.severity(allure.severity_level.NORMAL)
+    @allure.story(test_cases.get_test_case("test_unsuccessful_login").story)
+    @allure.title(test_cases.get_test_case("test_unsuccessful_login").display_name)
+    @allure.severity(test_cases.get_test_case("test_unsuccessful_login").severity)
     @pytest.mark.parametrize("username, password",
                              spreadsheet_data_provider.get_records(workbook_name="data_sheets/user_credentials.xlsx",
                                                                    sheet_name="invalid_logins"))
@@ -58,9 +66,9 @@ class Test_UserSignIn(BaseTest):
         login_page.log_in(username, password)
         assert login_page.check_if_element_exists("lbl_login_failed"), "Successful login detected for a invalid user"
 
-
-    @allure.story("Cloud Login")
-    @allure.severity(allure.severity_level.NORMAL)
+    @allure.story(test_cases.get_test_case("test_successful_login").story)
+    @allure.title(test_cases.get_test_case("test_successful_login").display_name)
+    @allure.severity(test_cases.get_test_case("test_successful_login").severity)
     def test_successful_login(self):
         random_login = spreadsheet_data_provider.get_random_record(workbook_name="data_sheets/user_credentials.xlsx",
                                                                    sheet_name="valid_logins")

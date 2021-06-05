@@ -62,6 +62,8 @@ def setup_on_session_start(request):
     except:
         logger.error("could not clear the report files folder")
     os.makedirs(report_dir_path)
+    yield
+    allure.attach.file("data_sheets/test_coverage.xlsx", name="test_coverage_details.xlsx", extension="xlsx")
 
 
 @pytest.fixture(scope="function")
@@ -69,4 +71,3 @@ def change_test_dir(request):
     os.chdir(request.fspath.dirname)
     yield
     os.chdir(request.config.invocation_dir)
-    # test
