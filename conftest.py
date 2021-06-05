@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 
 from selenium import webdriver
@@ -12,6 +14,7 @@ import shutil
 from webdriver_manager.firefox import GeckoDriverManager
 
 logger = utilities.logger.Logger(logger_name="test setup")
+
 
 @pytest.hookimpl(hookwrapper=True, tryfirst=True)
 def pytest_runtest_makereport(item, call):
@@ -43,11 +46,12 @@ def add_logs_on_failure(request, get_browser):
     if item.rep_call.failed:
         allure.attach(driver.get_screenshot_as_png(), name="dologin", attachment_type=AttachmentType.PNG)
 
+
 @pytest.fixture(scope="session")
 def setup_on_session_start(request):
-    # create a log file if it doesn't exist in the logs folder. If exists, clear the content
-    #    to include only logs fromt he current session
-    with open(file=config_reader.read(section="settings", key="log_file_path"), mode="w") as log_file:
+
+    # create a  brand new log file for each session:
+    with open(file=config_reader.read(section="settings", key="log_file_name"), mode="w"):
         pass
 
     # clear reports folder at the beginning of each session:
@@ -65,6 +69,3 @@ def change_test_dir(request):
     yield
     os.chdir(request.config.invocation_dir)
     # test
-
-
-
