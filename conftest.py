@@ -51,7 +51,8 @@ def add_logs_on_failure(request, get_browser):
 def setup_on_session_start(request):
 
     # create a  brand new log file for each session:
-    with open(file=config_reader.read(section="settings", key="log_file_name"), mode="w"):
+    log_file_name = config_reader.read(section="settings", key="log_file_name")
+    with open(file=f"logs/{log_file_name}", mode="w"):
         pass
 
     # clear reports folder at the beginning of each session:
