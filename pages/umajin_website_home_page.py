@@ -1,5 +1,4 @@
 from pages.umajin_cloud_base_page import UmajinCloudBase
-import logging
 from utilities.logger import Logger
 
 log = Logger(__name__)
@@ -9,9 +8,6 @@ class HomePage(UmajinCloudBase):
     def __init__(self, driver):
         super().__init__(driver=driver)
         self.driver = driver
-
-
-
 
     def sign_up (self, first_name: str, last_name: str, email: str, company: str, country: str, industry: str):
         """Signs out from the currently logged in account
