@@ -7,6 +7,7 @@ from selenium import webdriver
 from utilities import config_reader
 from webdriver_manager.chrome import ChromeDriverManager
 from allure_commons.types import AttachmentType
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import allure
 import utilities.logger
 import os
@@ -24,18 +25,49 @@ def pytest_runtest_makereport(item, call):
     return rep
 
 
-@pytest.fixture(params=["chrome"], scope="class")
+@pytest.fixture(params=["firefox", "chrome", "safari"], scope="class")
 def get_browser(request):
+    selenium_grid_hub_ip_and_port = config_reader.read(section="settings", key="selenium_grid_hub_ip_and_port")
+    remote_url = f"http://{selenium_grid_hub_ip_and_port}/wd/hub"
     if request.param == "chrome":
-        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
-    if request.param == "firefox":
-        driver = webdriver.Firefox(executable_path="c:/selenium_browser_drivers/geckodriver.exe")
-    logger.info(f"initializing {driver.name}")
+        # uncomment/comment the following lines to switch between local execution and selenium grid
+        # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+        driver = webdriver.Remote(
+            command_executor=remote_url,
+            desired_capabilities=DesiredCapabilities.CHROME
+        )
+    elif request.param == "firefox":
+        # uncomment/comment the following lines to switch between local execution and selenium grid
+        # driver = webdriver.Firefox(executable_path="c:/selenium_browser_drivers/geckodriver.exe")
+        driver = webdriver.Remote(
+            command_executor=remote_url,
+            desired_capabilities=DesiredCapabilities.FIREFOX
+        )
+    elif request.param == "edge":
+        # uncomment/comment the following lines to switch between local execution and selenium grid
+        # driver = webdriver.Edge(executable_path="c:/selenium_browser_drivers/edgedriver.exe")
+        caps = DesiredCapabilities.EDGE
+        driver = webdriver.Remote(
+            command_executor=remote_url,
+            desired_capabilities=caps
+        )
+    elif request.param == "safari":
+        caps = DesiredCapabilities.SAFARI
+        driver = webdriver.Remote(
+            command_executor=remote_url,
+            desired_capabilities=caps
+        )
+    logger.info(driver, f"initializing {driver.name}")
     request.cls.driver = driver
+
+    # getting the url in advance to set a cookie to bypass the login
     driver.get(config_reader.read(section='basic_information', key='cloud_url'))
+    driver.add_cookie({"name": "token", "domain": ".umajin.com", "value": "edad609473489327d8fb0b0f55903b5b"})
+    logger.info(driver, f"cookie has been set to bypass login")
+
     yield driver
     driver.quit()
-    logger.info(f"{driver.name} closed")
+    logger.info(driver, f"{driver.name} closed")
 
 
 @pytest.fixture()
@@ -55,13 +87,15 @@ def setup_on_session_start(request):
     with open(file=f"logs/{log_file_name}", mode="w"):
         pass
 
-    # clear reports folder at the beginning of each session:
-    report_dir_path = config_reader.read("settings", "report_files_folder")
-    try:
-        shutil.rmtree(report_dir_path)
-    except:
-        logger.error("could not clear the report files folder")
-    os.makedirs(report_dir_path)
+    # DISABLED FOR NOW - doesn't support parallel testing. ------clear reports folder at the beginning of each session:
+    # report_dir_path = config_reader.read("settings", "report_files_folder")
+    # try:
+    #     shutil.rmtree(report_dir_path)
+    # except:
+    #     logger.error("could not clear the report files folder")
+    # os.makedirs(report_dir_path)
+
+
     yield
     allure.attach.file("data_sheets/test_coverage.xlsx", name="test_coverage_details.xlsx", extension="xlsx")
 

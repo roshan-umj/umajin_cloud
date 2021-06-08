@@ -16,12 +16,12 @@ class Login(UmajinCloudBase):
         :param username: username or email address
         :param password: password
         """
-        log.info("go to login page")
+        log.info(self.driver, "go to login page")
         # the locator should be available under the given section in configuration_data/config.ini
         self.send_keys(locator="txt_username", value=username)
         self.send_keys(locator="txt_password", value=password)
         self.click(locator="btn_sign_in")
-        log.logger.info(f"attempt to sign in. username: {username} password: {password}")
+        log.info(self.driver, f"attempt to sign in. username: {username} password: {password}")
         return ProjectList(driver=self.driver)
 
 

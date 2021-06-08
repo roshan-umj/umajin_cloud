@@ -1,14 +1,24 @@
 import time
-
 import allure
 import pytest
 import pages.user_login_page as login
 from utilities import spreadsheet_data_provider
 from utilities import test_cases as test_cases
 from test_cases.base_test import BaseTest
+from pages.project_list import ProjectList
 
+@pytest.fixture(scope="class")
+def navigate_to_page_under_test(request):
+    request.cls.driver.get("https://cloud.umajin.com")
+    # when you try to access the login page, it automatically redirects to the project list because of the cookie used.
+    # sign out from the project list to open the login page
+    project_list = ProjectList(request.cls.driver)
+    project_list.sign_out()
 
+@pytest.mark.usefixtures("navigate_to_page_under_test")
 class Test_UserSignIn(BaseTest):
+
+
 
     @allure.story(test_cases.get_test_case("test_availability_of_page_elements").story)
     @allure.title(test_cases.get_test_case("test_availability_of_page_elements").display_name)
@@ -26,7 +36,7 @@ class Test_UserSignIn(BaseTest):
             "btn_forgot_password"), "Forgot Password? button is not available"
 
         assert login_page.get_text(
-            "lbl_login_page_heading") == "Umajin Cloud Services", 'Page heading is not matched to "Umajin Cloud Service"'
+            "lbl_login_page_heading").strip() == "Umajin Cloud Services", 'Page heading is not matched to "Umajin Cloud Service"'
         assert login_page.get_text(
             "lbl_username") == "Username / Email", 'Failed to match text : "Username / Email" '
         assert login_page.get_text("lbl_password") == "Password", 'Failed to match text : "Password" '
@@ -43,7 +53,10 @@ class Test_UserSignIn(BaseTest):
     def test_sign_up_link(self):
         login_page = login.Login(self.driver)
         login_page.click("btn_sign_up")
-        assert self.driver.current_url == "https://www.umajin.com/#download" and self.driver.title == "Umajin Home - Umajin", "Sign up page link or page title did not match"
+        # sign up link https://www.umajin.com/create_account/ redirects to https://www.umajin.com/#download
+        login_page.wait_until_redirected("https://www.umajin.com/#download")
+
+        assert self.driver.title == "Umajin Home - Umajin", "On sign up button click: Umajin home page title did not match. "
         self.driver.back()
 
     @allure.story(test_cases.get_test_case("test_forgot_password_link").story)

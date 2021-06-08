@@ -7,13 +7,11 @@ from pages.user_login_page import Login
 from test_cases.base_test import BaseTest
 
 
-@pytest.fixture(scope="class")
-def navigate_to_project_list(request):
-    login_page = Login(request.cls.driver)
-    login_page.click("btn_sign_up")
+@pytest.fixture(scope="function")
+def navigate_to_page_under_test(request):
+    request.cls.driver.get("https://www.umajin.com/")
 
-
-@pytest.mark.usefixtures("navigate_to_project_list")
+@pytest.mark.usefixtures("navigate_to_page_under_test")
 class Test_HomePage(BaseTest):
 
     @allure.story(test_cases.get_test_case("test_sign_up").story)

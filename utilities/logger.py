@@ -37,11 +37,11 @@ class Logger:
         self.logger.addHandler(file_handler)
         self.logger.addHandler(stream_handler)
 
-    def debug(self, log_message):
-        self.logger.debug(msg=log_message)
+    def debug(self, driver, log_message):
+        self.logger.info(msg=f"{driver.name}: {log_message}")
 
-    def info(self, log_message):
-        self.logger.info(msg=log_message)
+    def info(self, driver, log_message):
+        self.logger.info(msg=f"{driver.name}: {log_message}")
 
     def warning(self, log_message):
         self.logger.warning(msg=log_message)
