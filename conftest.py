@@ -96,10 +96,6 @@ def setup_on_session_start(request):
     # os.makedirs(report_dir_path)
 
 
-    yield
-    allure.attach.file("data_sheets/test_coverage.xlsx", name="test_coverage_details.xlsx", extension="xlsx")
-
-
 @pytest.fixture(scope="function")
 def change_test_dir(request):
     os.chdir(request.fspath.dirname)
