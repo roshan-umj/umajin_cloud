@@ -1,18 +1,15 @@
 from pathlib import Path
 
 import pytest
+import json
+import allure
+import os
 
 from selenium import webdriver
-
 from utilities import config_reader
-from webdriver_manager.chrome import ChromeDriverManager
+import utilities.logger
 from allure_commons.types import AttachmentType
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-import allure
-import utilities.logger
-import os
-import shutil
-from webdriver_manager.firefox import GeckoDriverManager
 
 logger = utilities.logger.Logger(logger_name="test setup")
 
@@ -25,7 +22,7 @@ def pytest_runtest_makereport(item, call):
     return rep
 
 
-@pytest.fixture(params=["firefox", "chrome", "safari"], scope="class")
+@pytest.fixture(params=config_reader.read(section="settings", key="browsers").strip().split(","), scope="class")
 def get_browser(request):
     selenium_grid_hub_ip_and_port = config_reader.read(section="settings", key="selenium_grid_hub_ip_and_port")
     remote_url = f"http://{selenium_grid_hub_ip_and_port}/wd/hub"
@@ -57,13 +54,18 @@ def get_browser(request):
             command_executor=remote_url,
             desired_capabilities=caps
         )
-    logger.info(driver, f"initializing {driver.name}")
-    request.cls.driver = driver
+    try:
+        logger.info(driver, f"initializing {driver.name}")
+        request.cls.driver = driver
+        # getting the url in advance to set a cookie to bypass the login
+        driver.get(config_reader.read(section='basic_information', key='cloud_url'))
 
-    # getting the url in advance to set a cookie to bypass the login
-    driver.get(config_reader.read(section='basic_information', key='cloud_url'))
-    driver.add_cookie({"name": "token", "domain": ".umajin.com", "value": "edad609473489327d8fb0b0f55903b5b"})
-    logger.info(driver, f"cookie has been set to bypass login")
+        # setting a cookie to bypass login
+        cookie_json = config_reader.read(section="settings", key="cookie")
+        driver.add_cookie(json.loads(cookie_json))
+        logger.info(driver, f"cookie has been set to bypass login")
+    except UnboundLocalError:
+        logger.exception(f"Failed to initialize browser instance: '{request.param}'. Please check the configurations.")
 
     yield driver
     driver.quit()
@@ -81,7 +83,6 @@ def add_logs_on_failure(request, get_browser):
 
 @pytest.fixture(scope="session")
 def setup_on_session_start(request):
-
     # create a  brand new log file for each session:
     log_file_name = config_reader.read(section="settings", key="log_file_name")
     with open(file=f"logs/{log_file_name}", mode="w"):
