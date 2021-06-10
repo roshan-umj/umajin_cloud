@@ -1,11 +1,6 @@
-import allure
-import pytest
-import random
-import utilities.test_cases as test_cases
+from common_imports_for_tests import *
 from pages.umajin_website_home_page import HomePage
-from pages.user_login_page import Login
-from test_cases.base_test import BaseTest
-
+import random
 
 @pytest.fixture(scope="function")
 def navigate_to_page_under_test(request):

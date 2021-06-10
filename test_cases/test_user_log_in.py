@@ -1,11 +1,7 @@
-import time
-import allure
-import pytest
+from common_imports_for_tests import *
 import pages.user_login_page as login
-from utilities import spreadsheet_data_provider
-from utilities import test_cases as test_cases
-from test_cases.base_test import BaseTest
 from pages.project_list import ProjectList
+from utilities import spreadsheet_data_provider
 
 @pytest.fixture(scope="class")
 def navigate_to_page_under_test(request):

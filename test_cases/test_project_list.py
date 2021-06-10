@@ -1,12 +1,6 @@
-import time
 
-import allure
-import pytest
-from pages.user_login_page import Login
+from common_imports_for_tests import *
 from pages.project_list import ProjectList
-from utilities import spreadsheet_data_provider
-import utilities.test_cases as test_cases
-from test_cases.base_test import BaseTest
 
 
 @pytest.fixture(scope="function")

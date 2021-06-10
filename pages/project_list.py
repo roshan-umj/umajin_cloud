@@ -1,9 +1,8 @@
-from pages.umajin_cloud_base_page import UmajinCloudBase
-import pages.user_login_page as  login
-import logging
-from utilities.logger import Logger
+from pages.common_imports import *
+import pages.user_login_page as login
 
-log = Logger(__name__, logging.INFO)
+
+log = Logger(__name__)
 
 
 class ProjectList(UmajinCloudBase):

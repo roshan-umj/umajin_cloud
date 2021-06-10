@@ -1,7 +1,5 @@
-from pages.umajin_cloud_base_page import UmajinCloudBase
-from pages.project_list import ProjectList
-import logging
-from utilities.logger import Logger
+from pages.common_imports import *
+import pages.project_list as project_list
 
 log = Logger(__name__)
 
@@ -22,7 +20,7 @@ class Login(UmajinCloudBase):
         self.send_keys(locator="txt_password", value=password)
         self.click(locator="btn_sign_in")
         log.info(self.driver, f"attempt to sign in. username: {username} password: {password}")
-        return ProjectList(driver=self.driver)
+        return project_list.ProjectList(driver=self.driver)
 
 
 
