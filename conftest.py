@@ -5,6 +5,7 @@ import json
 import allure
 import os
 
+import selenium.common.exceptions as selenium_exceptions
 from selenium import webdriver
 from utilities import config_reader
 import utilities.logger
@@ -27,33 +28,47 @@ def get_browser(request):
     selenium_grid_hub_ip_and_port = config_reader.read(section="settings", key="selenium_grid_hub_ip_and_port")
     remote_url = f"http://{selenium_grid_hub_ip_and_port}/wd/hub"
     if request.param == "chrome":
-        # uncomment/comment the following lines to switch between local execution and selenium grid
-        # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
-        driver = webdriver.Remote(
-            command_executor=remote_url,
-            desired_capabilities=DesiredCapabilities.CHROME
-        )
+        try:
+            capabilities = DesiredCapabilities.CHROME
+            driver = webdriver.Remote(
+                command_executor=remote_url,
+                desired_capabilities=capabilities
+            )
+        except:
+            logger.error(f"{request.param} browser cloud not be initialized."
+                         f" Please make sure selenium grid/ local browser drivers are configured correctly")
     elif request.param == "firefox":
-        # uncomment/comment the following lines to switch between local execution and selenium grid
-        # driver = webdriver.Firefox(executable_path="c:/selenium_browser_drivers/geckodriver.exe")
-        driver = webdriver.Remote(
-            command_executor=remote_url,
-            desired_capabilities=DesiredCapabilities.FIREFOX
-        )
+        try:
+            capabilities = DesiredCapabilities.FIREFOX
+            driver = webdriver.Remote(
+                command_executor=remote_url,
+                desired_capabilities=capabilities
+            )
+        except:
+            logger.error(f"{request.param} browser cloud not be initialized."
+                         f" Please make sure selenium grid/ local browser drivers are configured correctly")
     elif request.param == "edge":
-        # uncomment/comment the following lines to switch between local execution and selenium grid
-        # driver = webdriver.Edge(executable_path="c:/selenium_browser_drivers/edgedriver.exe")
-        caps = DesiredCapabilities.EDGE
-        driver = webdriver.Remote(
-            command_executor=remote_url,
-            desired_capabilities=caps
+        try:
+            capabilities = DesiredCapabilities.EDGE
+            driver = webdriver.Remote(
+                command_executor=remote_url,
+                desired_capabilities=capabilities
         )
+        except:
+            logger.error(f"{request.param} browser cloud not be initialized."
+                         f" Please make sure selenium grid/ local browser drivers are configured correctly")
+
     elif request.param == "safari":
-        caps = DesiredCapabilities.SAFARI
-        driver = webdriver.Remote(
-            command_executor=remote_url,
-            desired_capabilities=caps
-        )
+        try:
+            capabilities = DesiredCapabilities.SAFARI
+            driver = webdriver.Remote(
+                command_executor=remote_url,
+                desired_capabilities=capabilities
+            )
+        except:
+            logger.error(f"{request.param} browser cloud not be initialized."
+                         f" Please make sure selenium grid/ local browser drivers are configured correctly")
+
     try:
         logger.info(driver, f"initializing {driver.name}")
         request.cls.driver = driver
@@ -64,8 +79,11 @@ def get_browser(request):
         cookie_json = config_reader.read(section="settings", key="cookie")
         driver.add_cookie(json.loads(cookie_json))
         logger.info(driver, f"cookie has been set to bypass login")
+
     except UnboundLocalError:
         logger.exception(f"Failed to initialize browser instance: '{request.param}'. Please check the configurations.")
+    except selenium_exceptions.UnableToSetCookieException:
+        logger.error(f"Failed to set cookie on {driver.name}")
 
     yield driver
     driver.quit()
@@ -87,14 +105,6 @@ def setup_on_session_start(request):
     log_file_name = config_reader.read(section="settings", key="log_file_name")
     with open(file=f"logs/{log_file_name}", mode="w"):
         pass
-
-    # DISABLED FOR NOW - doesn't support parallel testing. ------clear reports folder at the beginning of each session:
-    # report_dir_path = config_reader.read("settings", "report_files_folder")
-    # try:
-    #     shutil.rmtree(report_dir_path)
-    # except:
-    #     logger.error("could not clear the report files folder")
-    # os.makedirs(report_dir_path)
 
 
 @pytest.fixture(scope="function")
