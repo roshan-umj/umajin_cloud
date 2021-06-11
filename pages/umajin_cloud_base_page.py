@@ -1,3 +1,4 @@
+from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -14,8 +15,9 @@ log = Logger(__name__)
 
 class UmajinCloudBase:
 
-    def __init__(self, driver):
+    def __init__(self, driver: webdriver.Remote):
         self.driver = driver
+
 
     def click(self, locator: str, by='xpath'):
         """Simulates clicking on the element
@@ -87,6 +89,12 @@ class UmajinCloudBase:
         select.select_by_visible_text(value)
 
         log.debug(self.driver, "select '{value}' from {locator}")
+
+    def go_back(self):
+        """Goes back to the previous page
+        """
+        self.driver.back()
+        log.debug(self.driver, f"go back to the previous page")
 
     def move_to(self, locator: str, by='xpath'):
         """Simulates moving mouse pointer to a target element
@@ -173,8 +181,15 @@ class UmajinCloudBase:
         """Returns the display text of an element
 
         """
-        log.debug(self.driver, f"get page title")
+        log.debug(self.driver, f"get page title: {self.driver.title}")
         return self.driver.title
+
+    def get_page_url(self) -> str:
+        """Returns the display text of an element
+
+        """
+        log.debug(self.driver, f"get page url: {self.driver.current_url}")
+        return self.driver.current_url
 
     def get_elements_count(self, locator: str, by='xpath') -> int:
         """Returns number of elements of the given xpath
@@ -240,4 +255,4 @@ class UmajinCloudBase:
         :param url: url expected after redirection
         :param wait_time: (optional parameter) wait time in seconds. If not specified, it uses the default wait time specified in conf.ini
         """
-        WebDriverWait(self.driver, wait_time).until(EC.url_to_be(url))
+        WebDriverWait(self.driver, wait_time).until(EC.url_changes(url))

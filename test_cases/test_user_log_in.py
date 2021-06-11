@@ -5,7 +5,9 @@ from utilities import spreadsheet_data_provider
 
 @pytest.fixture(scope="class")
 def navigate_to_page_under_test(request):
-    request.cls.driver.get("https://cloud.umajin.com")
+    print(urls.project_list)
+    request.cls.driver.get(urls.project_list)
+
     # when you try to access the login page, it automatically redirects to the project list because of the cookie used.
     # sign out from the project list to open the login page
     project_list = ProjectList(request.cls.driver)
@@ -13,8 +15,6 @@ def navigate_to_page_under_test(request):
 
 @pytest.mark.usefixtures("navigate_to_page_under_test")
 class Test_UserSignIn(BaseTest):
-
-
 
     @allure.story(test_cases.get_test_case("test_availability_of_page_elements").story)
     @allure.title(test_cases.get_test_case("test_availability_of_page_elements").display_name)
@@ -50,8 +50,7 @@ class Test_UserSignIn(BaseTest):
         login_page = login.Login(self.driver)
         login_page.click("btn_sign_up")
         # sign up link https://www.umajin.com/create_account/ redirects to https://www.umajin.com/#download
-        login_page.wait_until_redirected("https://www.umajin.com/#download")
-
+        login_page.wait_until_redirected(urls.download_page)
         assert self.driver.title == "Umajin Home - Umajin", "On sign up button click: Umajin home page title did not match. "
         self.driver.back()
 
@@ -60,9 +59,9 @@ class Test_UserSignIn(BaseTest):
     @allure.severity(test_cases.get_test_case("test_forgot_password_link").severity)
     def test_forgot_password_link(self):
         login_page = login.Login(self.driver)
-        login_page.click("btn_forgot_password")
-        assert self.driver.current_url == "https://cloud.umajin.com/reset_password.php" and self.driver.title == "Umajin Cloud", "'Forgot password?' link page title or url did not match"
-        self.driver.back()
+        forgot_password_page = login_page.go_to_forgot_password_page()
+        assert forgot_password_page.get_page_url() == urls.rest_password_page, "Forgot password?' link url is not correct"
+        forgot_password_page.go_back()
 
     @allure.story(test_cases.get_test_case("test_unsuccessful_login").story)
     @allure.title(test_cases.get_test_case("test_unsuccessful_login").display_name)

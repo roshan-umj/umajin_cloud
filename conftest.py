@@ -8,6 +8,7 @@ import os
 import selenium.common.exceptions as selenium_exceptions
 from selenium import webdriver
 from utilities import config_reader
+from utilities import urls
 import utilities.logger
 from allure_commons.types import AttachmentType
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
@@ -73,10 +74,13 @@ def get_browser(request):
         logger.info(driver, f"initializing {driver.name}")
         request.cls.driver = driver
         # getting the url in advance to set a cookie to bypass the login
-        driver.get(config_reader.read(section='basic_information', key='cloud_url'))
+        driver.get(urls.base_url)
 
         # setting a cookie to bypass login
-        cookie_json = config_reader.read(section="settings", key="cookie")
+        if config_reader.read(section="settings", key="server").lower() == "test":
+            cookie_json = config_reader.read(section="settings", key="cookie_test")
+        else:
+            cookie_json = config_reader.read(section="settings", key="cookie_live")
         driver.add_cookie(json.loads(cookie_json))
         logger.info(driver, f"cookie has been set to bypass login")
 

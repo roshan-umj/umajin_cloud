@@ -5,7 +5,7 @@ from pages.project_list import ProjectList
 
 @pytest.fixture(scope="function")
 def navigate_to_page_under_test(request):
-    request.cls.driver.get("https://cloud.umajin.com/index.php?")
+    request.cls.driver.get(urls.project_list)
 
 
 @pytest.mark.usefixtures("navigate_to_page_under_test")
