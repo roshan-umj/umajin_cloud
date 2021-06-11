@@ -19,9 +19,6 @@ class Logger:
 
         log_line_format = logging.Formatter('%(asctime)s - %(filename)s:[%(lineno)d] [%(levelname)s] %(message)s')
 
-
-
-
         # file handler is for the log file stored in 'logs' folder
         file_handler = logging.FileHandler(filename=f"logs/{log_file_name}", mode="a")
         file_handler.setFormatter(log_line_format)
