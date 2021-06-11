@@ -41,7 +41,7 @@ class Test_UserSignIn(BaseTest):
         assert login_page.get_text(
             "btn_forgot_password") == "Forgot password?", 'Failed to match text : "Forgot password?" '
 
-        assert login_page.get_page_title() == "Umajin Cloud"
+        assert login_page.title == "Umajin Cloud"
 
     @allure.story(test_cases.get_test_case("test_sign_up_link").story)
     @allure.title(test_cases.get_test_case("test_sign_up_link").display_name)
@@ -60,7 +60,7 @@ class Test_UserSignIn(BaseTest):
     def test_forgot_password_link(self):
         login_page = login.Login(self.driver)
         forgot_password_page = login_page.go_to_forgot_password_page()
-        assert forgot_password_page.get_page_url() == urls.rest_password_page, "Forgot password?' link url is not correct"
+        assert forgot_password_page.url == urls.rest_password_page, "Forgot password?' link url is not correct"
         forgot_password_page.go_back()
 
     @allure.story(test_cases.get_test_case("test_unsuccessful_login").story)
@@ -82,6 +82,6 @@ class Test_UserSignIn(BaseTest):
                                                                    sheet_name="valid_logins")
         login_page = login.Login(self.driver)
         project_list = login_page.log_in(random_login["username"], random_login["password"])
-        assert project_list.get_page_title() == "Umajin Cloud | Project List", "Project list title did not match"
+        assert project_list.title == "Umajin Cloud | Project List", "Project list title did not match"
         login_page = project_list.sign_out()
         assert login_page.check_if_element_exists('lbl_logout_successful_msg'), "Successful log out message not found in the sign in page after successfully logging out"

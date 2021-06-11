@@ -9,7 +9,6 @@ def get_records(workbook_name, sheet_name):
     :param sheet_name: name of the sheet in the workbook
     :return: a list of data records from the given spreadsheet and the sheet
     """
-    print("Test Starts here")
     workbook = openpyexcel.load_workbook(workbook_name)
     sheet = workbook[sheet_name]
     total_rows = sheet.max_row
@@ -32,13 +31,11 @@ def get_random_record(workbook_name, sheet_name):
     :param sheet_name: name of the sheet in the workbook
     :return: a list of data records from the given spreadsheet and the sheet
     """
-    print("Test Starts here")
     workbook = openpyexcel.load_workbook(workbook_name)
     sheet = workbook[sheet_name]
     total_rows = sheet.max_row
     total_cols = sheet.max_column
     records = []
-    print("Test 1")
 
     for row in range(2, total_rows + 1):
         column_data = []

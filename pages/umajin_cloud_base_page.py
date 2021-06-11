@@ -17,6 +17,8 @@ class UmajinCloudBase:
 
     def __init__(self, driver: webdriver.Remote):
         self.driver = driver
+        self.title = driver.title
+        self.url = driver.current_url
 
 
     def click(self, locator: str, by='xpath'):
@@ -177,19 +179,6 @@ class UmajinCloudBase:
             return WebDriverWait(self.driver, WAIT_TIME).until(
                 EC.visibility_of_element_located((By.ID, locator_string))).text
 
-    def get_page_title(self) -> str:
-        """Returns the display text of an element
-
-        """
-        log.debug(self.driver, f"get page title: {self.driver.title}")
-        return self.driver.title
-
-    def get_page_url(self) -> str:
-        """Returns the display text of an element
-
-        """
-        log.debug(self.driver, f"get page url: {self.driver.current_url}")
-        return self.driver.current_url
 
     def get_elements_count(self, locator: str, by='xpath') -> int:
         """Returns number of elements of the given xpath
