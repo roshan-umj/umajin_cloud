@@ -11,6 +11,6 @@ else:
     # base_url = https://cloud.umajin.com/
 
 project_list = base_url + "index.php"
-download_page = home_page + "#download"
+sign_up_to_download_page = home_page + "#download"
 rest_password_page = base_url + "reset_password.php"
 project_link = base_url + "index.php?view=dashboard&projectid="

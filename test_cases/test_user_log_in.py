@@ -48,28 +48,28 @@ class Test_UserSignIn(BaseTest):
     @allure.severity(test_cases.get_test_case("test_sign_up_link").severity)
     def test_sign_up_link(self):
         login_page = login.Login(self.driver)
-        login_page.click("btn_sign_up")
+        home_page = login_page.open_sign_up_page()
         # sign up link https://www.umajin.com/create_account/ redirects to https://www.umajin.com/#download
-        login_page.wait_until_redirected(urls.download_page)
-        assert self.driver.title == "Umajin Home - Umajin", "On sign up button click: Umajin home page title did not match. "
-        self.driver.back()
+        login_page.wait_until_redirected(urls.sign_up_to_download_page)
+        assert home_page.title == "Umajin Home - Umajin", "On sign up button click: Umajin home page title did not match. "
+        home_page.go_back()
 
     @allure.story(test_cases.get_test_case("test_forgot_password_link").story)
     @allure.title(test_cases.get_test_case("test_forgot_password_link").display_name)
     @allure.severity(test_cases.get_test_case("test_forgot_password_link").severity)
     def test_forgot_password_link(self):
         login_page = login.Login(self.driver)
-        forgot_password_page = login_page.go_to_forgot_password_page()
+        forgot_password_page = login_page.open_forgot_password_page()
         assert forgot_password_page.url == urls.rest_password_page, "Forgot password?' link url is not correct"
         forgot_password_page.go_back()
 
-    @allure.story(test_cases.get_test_case("test_unsuccessful_login").story)
-    @allure.title(test_cases.get_test_case("test_unsuccessful_login").display_name)
-    @allure.severity(test_cases.get_test_case("test_unsuccessful_login").severity)
+    @allure.story(test_cases.get_test_case("test_preventing_unsuccessful_login_attempts").story)
+    @allure.title(test_cases.get_test_case("test_preventing_unsuccessful_login_attempts").display_name)
+    @allure.severity(test_cases.get_test_case("test_preventing_unsuccessful_login_attempts").severity)
     @pytest.mark.parametrize("username, password",
                              spreadsheet_data_provider.get_records(workbook_name="data_sheets/user_credentials.xlsx",
                                                                    sheet_name="invalid_logins"))
-    def test_unsuccessful_login(self, username, password):
+    def test_preventing_unsuccessful_login_attempts(self, username, password):
         login_page = login.Login(self.driver)
         login_page.log_in(username, password)
         assert login_page.check_if_element_exists("lbl_login_failed"), "Successful login detected for a invalid user"
