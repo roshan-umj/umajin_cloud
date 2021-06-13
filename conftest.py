@@ -100,7 +100,7 @@ def add_logs_on_failure(request, get_browser):
     item = request.node
     driver = get_browser
     if item.rep_call.failed:
-        allure.attach(driver.get_screenshot_as_png(), name="dologin", attachment_type=AttachmentType.PNG)
+        allure.attach(driver.get_screenshot_as_png(), name="failure_screenshot", attachment_type=AttachmentType.PNG)
 
 
 @pytest.fixture(scope="session")

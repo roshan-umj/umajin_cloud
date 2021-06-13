@@ -8,8 +8,9 @@ if server == "test":
     # base_url = https://cloudtest.umajin.com
 else:
     base_url = f"https://cloud.{config_reader.read(section='settings', key='domain')}/"
-    # base_url = https://cloud.umajin.com
+    # base_url = https://cloud.umajin.com/
 
 project_list = base_url + "index.php"
 download_page = home_page + "#download"
 rest_password_page = base_url + "reset_password.php"
+project_link = base_url + "index.php?view=dashboard&projectid="
