@@ -45,12 +45,35 @@ class UmajinCloudBase:
 
         log.debug(self.driver, f"click on {locator}")
 
+    def click_element_by_attribute_value(self, locator: str, attribute_name: str, value: str, by='xpath'):
+        """Simulates clicking on the element. Finds an element by the attribute name and value.
+
+        :param locator: name of the element. name should match to a record in conf.ini file.
+        :param attribute_name: name of the attribute.  Eg:"style"
+        :param value: value of the attribute. Eg: "background-color:#ffb3ba;"
+
+        :param by: (optional parameter. input values: 'xpath', 'css', 'id') if no selector type is defined,
+         the element is searched by xpath.
+        """
+        locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator) + f"[@{attribute_name}='{value}']"
+        if by == 'xpath':
+            WebDriverWait(self.driver, WAIT_TIME).until(
+                EC.visibility_of_element_located((By.XPATH, locator_string))).click()
+        elif by == 'css':
+            WebDriverWait(self.driver, WAIT_TIME).until(
+                EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string))).click()
+        elif by == 'id':
+            WebDriverWait(self.driver, WAIT_TIME).until(
+                EC.visibility_of_element_located((By.ID, locator_string))).click()
+
+        log.debug(self.driver, f"click on {locator}")
+
     def send_keys(self, locator: str, value: str, by='xpath'):
         """Simulates typing into the element
 
         :param locator: name of the element. name should match to a record in conf.ini file.
 
-        :param value: A string for typing, or setting form fields.
+        :param value: A string for typing, or setting form fields.ip_address
 
         :param by: (optional parameter. input values: 'xpath', 'css', 'id') if no selector type is defined,
          the element is searched by xpath.
@@ -59,15 +82,36 @@ class UmajinCloudBase:
 
         if by == 'xpath':
             WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.XPATH, locator_string))).send_keys(value)
+                EC.presence_of_element_located((By.XPATH, locator_string))).send_keys(value)
         elif by == 'css':
             WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string))).send_keys(value)
+                EC.presence_of_element_located((By.CSS_SELECTOR, locator_string))).send_keys(value)
         elif by == 'id':
             WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.ID, locator_string))).send_keys(value)
+                EC.presence_of_element_located((By.ID, locator_string))).send_keys(value)
 
         log.debug(self.driver, f"type in {locator}. value: {value}")
+
+    def clear(self, locator: str, by='xpath'):
+            """Clears the text if it's a text entry element.
+
+            :param locator: name of the element. name should match to a record in conf.ini file.
+            :param by: (optional parameter. input values: 'xpath', 'css', 'id') if no selector type is defined,
+             the element is searched by xpath.
+            """
+            locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
+
+            if by == 'xpath':
+                WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.XPATH, locator_string))).clear()
+            elif by == 'css':
+                WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string))).clear()
+            elif by == 'id':
+                WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.ID, locator_string))).clear()
+
+            log.debug(self.driver, f"clear text from {locator}")
 
     def select(self, locator: str, value: str, by='xpath'):
         """Simulates selecting an item from a dropdown
@@ -199,8 +243,7 @@ class UmajinCloudBase:
                 log.debug(self.driver, f"{locator} found on the page!")
         return True
 
-
-    def get_text(self, locator: str, by='xpath') -> bool:
+    def get_text(self, locator: str, by='xpath'):
         """Returns the display text of an element
         :param locator: name of the element. name should match to a record in conf.ini file.
         :param by: (optional parameter. input values: 'xpath', 'css', 'id') if no selector type is defined,

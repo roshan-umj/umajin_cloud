@@ -1,5 +1,6 @@
 from common_imports_for_tests import *
 import pages.user_login_page as login
+from utilities import config_reader
 from pages.project_list import ProjectList
 from utilities import spreadsheet_data_provider
 
@@ -78,10 +79,13 @@ class Test_UserSignIn(BaseTest):
     @allure.title(test_cases.get_test_case("test_successful_login").display_name)
     @allure.severity(test_cases.get_test_case("test_successful_login").severity)
     def test_successful_login(self):
-        random_login = spreadsheet_data_provider.get_random_record(workbook_name="data_sheets/user_credentials.xlsx",
-                                                                   sheet_name="valid_logins")
+
         login_page = login.Login(self.driver)
-        project_list = login_page.log_in(random_login["username"], random_login["password"])
+
+        user_name = config_reader.read(section="basic_information", key="test_account_username")
+        password = config_reader.read(section="basic_information", key="test_account_password")
+        project_list = login_page.log_in(user_name, password)
+
         assert project_list.title == "Umajin Cloud | Project List", "Project list title did not match"
         login_page = project_list.sign_out()
         assert login_page.check_if_element_exists('lbl_logout_successful_msg'), "Successful log out message not found in the sign in page after successfully logging out"
