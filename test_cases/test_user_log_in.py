@@ -1,3 +1,5 @@
+import time
+
 from common_imports_for_tests import *
 import pages.user_login_page as login
 from utilities import config_reader
@@ -44,25 +46,27 @@ class Test_UserSignIn(BaseTest):
 
         assert login_page.title == "Umajin Cloud"
 
-    @allure.story(test_cases.get_test_case("test_sign_up_link").story)
-    @allure.title(test_cases.get_test_case("test_sign_up_link").display_name)
-    @allure.severity(test_cases.get_test_case("test_sign_up_link").severity)
-    def test_sign_up_link(self):
+    @allure.story(test_cases.get_test_case("test_page_links").story)
+    @allure.title(test_cases.get_test_case("test_page_links").display_name)
+    @allure.severity(test_cases.get_test_case("test_page_links").severity)
+    def test_page_links(self):
+
         login_page = login.Login(self.driver)
+
+        # check if forgot password link works:
+        forgot_password_page = login_page.open_forgot_password_page()
+        assert forgot_password_page.url == urls.rest_password_page, "Forgot password?' link url is not correct"
+        forgot_password_page.go_back()
+
+        # check if sign up link works:
         home_page = login_page.open_sign_up_page()
         # sign up link https://www.umajin.com/create_account/ redirects to https://www.umajin.com/#download
         login_page.wait_until_redirected(urls.sign_up_to_download_page)
         assert home_page.title == "Umajin Home - Umajin", "On sign up button click: Umajin home page title did not match. "
         home_page.go_back()
 
-    @allure.story(test_cases.get_test_case("test_forgot_password_link").story)
-    @allure.title(test_cases.get_test_case("test_forgot_password_link").display_name)
-    @allure.severity(test_cases.get_test_case("test_forgot_password_link").severity)
-    def test_forgot_password_link(self):
-        login_page = login.Login(self.driver)
-        forgot_password_page = login_page.open_forgot_password_page()
-        assert forgot_password_page.url == urls.rest_password_page, "Forgot password?' link url is not correct"
-        forgot_password_page.go_back()
+
+
 
     @allure.story(test_cases.get_test_case("test_preventing_unsuccessful_login_attempts").story)
     @allure.title(test_cases.get_test_case("test_preventing_unsuccessful_login_attempts").display_name)
@@ -89,3 +93,4 @@ class Test_UserSignIn(BaseTest):
         assert project_list.title == "Umajin Cloud | Project List", "Project list title did not match"
         login_page = project_list.sign_out()
         assert login_page.check_if_element_exists('lbl_logout_successful_msg'), "Successful log out message not found in the sign in page after successfully logging out"
+
