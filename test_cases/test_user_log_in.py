@@ -1,5 +1,3 @@
-import time
-
 from common_imports_for_tests import *
 import pages.user_login_page as login
 from utilities import config_reader

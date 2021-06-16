@@ -1,3 +1,4 @@
+from resources import data
 from common_imports_for_tests import *
 from pages.umajin_website_home_page import HomePage
 import random
@@ -15,11 +16,19 @@ class Test_HomePage(BaseTest):
     def test_sign_up(self):
         home_page = HomePage(self.driver)
 
-        country_list = home_page.get_options_list_from_select("sel_signup_country")
-        random_country = random.choice(country_list[1:]) # get one of the country names except first one which is not a valid name
+        # industry_list = home_page.get_options_list_from_select("sel_signup_industry")
+        # country_list = home_page.get_options_list_from_select("sel_signup_country")
+        # random_country = random.choice(country_list[1:]) # get one of the country names except first one which is not a valid name
+        # random_industry = random.choice(industry_list[1:])  # get one of the industry names except first one which is not a valid name
 
-        industry_list = home_page.get_options_list_from_select("sel_signup_industry")
-        random_industry = random.choice(industry_list[1:]) # get one of the industry names except first one which is not a valid name
+        # It takes a considerable amount of time to read all options tags from above 2 <select> elements.
+        #  Therefore, all option values from those selects are stored in 2 lists in resources/data.py"
+        #  comment following 2 lines and uncomment above 4 lines if you want to get values from the website in runtime.
+
+        random_country = random.choice(data.countries)
+        random_industry = random.choice(data.industries)
+
+
 
         home_page.sign_up(first_name="Umajin",
                           last_name="Test User",
