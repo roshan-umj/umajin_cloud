@@ -24,7 +24,9 @@ def pytest_runtest_makereport(item, call):
     return rep
 
 
-@pytest.fixture(params=config_reader.read(section="settings", key="browsers").strip().split(","), scope="class")
+
+# if envionment variable is set up for browsers (eg: in jenkins) use that. otherwise, use browser settings from conf.ini
+@pytest.fixture(params=str(os.getenv("Browsers")).strip().split(",") if os.getenv("Browsers") else config_reader.read(section="settings", key="browsers").strip().split(","), scope="class")
 def get_browser(request):
     selenium_grid_hub_ip_and_port = config_reader.read(section="settings", key="selenium_grid_hub_ip_and_port")
     remote_url = f"http://{selenium_grid_hub_ip_and_port}/wd/hub"
@@ -54,7 +56,7 @@ def get_browser(request):
             driver = webdriver.Remote(
                 command_executor=remote_url,
                 desired_capabilities=capabilities
-        )
+            )
         except:
             logger.error(f"{request.param} browser cloud not be initialized."
                          f" Please make sure selenium grid/ local browser drivers are configured correctly")
@@ -91,6 +93,7 @@ def get_browser(request):
 
     yield driver
     driver.quit()
+    print(os.getenv("BROWSERS"))
     logger.info(driver, f"{driver.name} closed")
 
 
