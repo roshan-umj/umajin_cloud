@@ -30,8 +30,8 @@ def pytest_runtest_makereport(item, call):
 def get_browser(request):
     # if environment variable is set up for selenium grid ip and port (eg: in jenkins) use that.
     #      otherwise, use browser settings from conf.ini:
-    if os.getenv('Selenium_Grid'):
-        selenium_grid_hub_ip_and_port = os.getenv('selenium_grid')
+    if os.getenv('Selenium_grid'):
+        selenium_grid_hub_ip_and_port = os.getenv('Selenium_grid')
     else:
         selenium_grid_hub_ip_and_port = config_reader.read(section="settings", key="selenium_grid_hub_ip_and_port")
     remote_url = f"http://{selenium_grid_hub_ip_and_port}/wd/hub"
