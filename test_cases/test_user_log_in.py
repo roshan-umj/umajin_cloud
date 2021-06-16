@@ -72,7 +72,7 @@ class Test_UserSignIn(BaseTest):
     @allure.title(test_cases.get_test_case("test_preventing_unsuccessful_login_attempts").display_name)
     @allure.severity(test_cases.get_test_case("test_preventing_unsuccessful_login_attempts").severity)
     @pytest.mark.parametrize("username, password",
-                             spreadsheet_data_provider.get_records(workbook_name="data_sheets/user_credentials.xlsx",
+                             spreadsheet_data_provider.get_records(workbook_name="resources/data_sheets/user_credentials.xlsx",
                                                                    sheet_name="invalid_logins"))
     def test_preventing_unsuccessful_login_attempts(self, username, password):
         login_page = login.Login(self.driver)

@@ -16,7 +16,7 @@ class TestCase:
 # reading test_coverage.xlsx and get test case data from it:
 
 
-records = dp.get_records("data_sheets/test_coverage.xlsx", "test_cases")
+records = dp.get_records("resources/data_sheets/test_coverage.xlsx", "test_cases")
 test_cases = []
 for record in records:
     tc = TestCase(

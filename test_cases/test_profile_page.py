@@ -20,7 +20,7 @@ class Test_ProfilePage(BaseTest):
     def test_changing_profile(self):
         profile_page = profile.ProfilePage(self.driver)
 
-        random_profile_data = spreadsheet_data_provider.get_random_record(workbook_name="data_sheets/random_data.xlsx",
+        random_profile_data = spreadsheet_data_provider.get_random_record(workbook_name="resources/data_sheets/random_data.xlsx",
                                                                           sheet_name="user_profile_data")
         random_name = random_profile_data[2]  # index 2 contains full name
         random_password = random_profile_data[6]  # index 6 contains a random password

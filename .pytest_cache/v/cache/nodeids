@@ -1,0 +1,15 @@
+[
+  "test_cases/test_home_page.py::Test_HomePage::test_sign_up[chrome]",
+  "test_cases/test_profile_page.py::Test_ProfilePage::test_changing_profile[chrome]",
+  "test_cases/test_project_list.py::Test_ProjectList::test_signing_out[chrome]",
+  "test_cases/test_project_list.py::Test_ProjectList::test_switching_project_list_views[chrome]",
+  "test_cases/test_user_log_in.py::Test_UserSignIn::test_availability_of_page_elements[chrome]",
+  "test_cases/test_user_log_in.py::Test_UserSignIn::test_page_links[chrome]",
+  "test_cases/test_user_log_in.py::Test_UserSignIn::test_preventing_unsuccessful_login_attempts[chrome- or 1=1 -- --1212]",
+  "test_cases/test_user_log_in.py::Test_UserSignIn::test_preventing_unsuccessful_login_attempts[chrome-admin\")-or \"1\"=\"1\"/*]",
+  "test_cases/test_user_log_in.py::Test_UserSignIn::test_preventing_unsuccessful_login_attempts[chrome-admin'-1'='1'/*]",
+  "test_cases/test_user_log_in.py::Test_UserSignIn::test_preventing_unsuccessful_login_attempts[chrome-admin-admin]",
+  "test_cases/test_user_log_in.py::Test_UserSignIn::test_preventing_unsuccessful_login_attempts[chrome-ron-ron]",
+  "test_cases/test_user_log_in.py::Test_UserSignIn::test_preventing_unsuccessful_login_attempts[chrome-tom-tom]",
+  "test_cases/test_user_log_in.py::Test_UserSignIn::test_successful_login[chrome]"
+]
