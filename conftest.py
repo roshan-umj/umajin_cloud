@@ -83,11 +83,19 @@ def get_browser(request):
         # getting the url in advance to set a cookie to bypass the login
         driver.get(urls.base_url)
 
-        # setting a cookie to bypass login
-        if config_reader.read(section="settings", key="server").lower() == "test":
-            cookie_json = config_reader.read(section="settings", key="cookie_test")
+        # setting a cookie to bypass login - get from env. variables if it's set. otherwise get from conf.ini
+        if os.getenv("Server"):
+            if os.getenv("Server") == "test":
+                cookie_json = config_reader.read(section="settings", key="cookie_test")
+            else:
+                cookie_json = config_reader.read(section="settings", key="cookie_live")
         else:
-            cookie_json = config_reader.read(section="settings", key="cookie_live")
+            config_settings_server = config_reader.read(section="settings", key="server").lower()
+            if config_settings_server == "test":
+                cookie_json = config_reader.read(section="settings", key="cookie_test")
+            else:
+                cookie_json = config_reader.read(section="settings", key="cookie_live")
+
         driver.add_cookie(json.loads(cookie_json))
         logger.info(driver, f"cookie has been set to bypass login")
 
@@ -112,6 +120,7 @@ def add_logs_on_failure(request, get_browser):
 
 @pytest.fixture(scope="session")
 def setup_on_session_start(request):
+
     # create a  brand new log file for each session:
     log_file_name = config_reader.read(section="settings", key="log_file_name")
     with open(file=f"logs/{log_file_name}", mode="w"):
