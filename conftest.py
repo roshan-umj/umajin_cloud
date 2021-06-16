@@ -28,7 +28,12 @@ def pytest_runtest_makereport(item, call):
 
 @pytest.fixture(params=str(os.getenv("Browsers")).strip().split(",") if os.getenv("Browsers") else config_reader.read(section="settings", key="browsers").strip().split(","), scope="class")
 def get_browser(request):
-    selenium_grid_hub_ip_and_port = config_reader.read(section="settings", key="selenium_grid_hub_ip_and_port")
+    # if environment variable is set up for selenium grid ip and port (eg: in jenkins) use that.
+    #      otherwise, use browser settings from conf.ini:
+    if os.getenv('Selenium_Grid'):
+        selenium_grid_hub_ip_and_port = os.getenv('selenium_grid')
+    else:
+        selenium_grid_hub_ip_and_port = config_reader.read(section="settings", key="selenium_grid_hub_ip_and_port")
     remote_url = f"http://{selenium_grid_hub_ip_and_port}/wd/hub"
     if request.param == "chrome":
         try:
