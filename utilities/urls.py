@@ -1,8 +1,16 @@
+import os
 from utilities import config_reader
+
 home_page = f"https://www.{config_reader.read(section='settings', key='domain')}"
 # home_page = "https://www.umajin.com/"
 
-server = config_reader.read(section="settings", key="server")
+# if the server under test is set from though the environment variables (Eg: Jenkins) get the server information from
+#   that environment variable. Otherwise, get from the conf.ini file:
+if os.getenv('Server'):
+    server = os.getenv('Server')
+else:
+    server = config_reader.read(section="settings", key="server")
+
 if server == "test":
     base_url = f"https://cloudtest.{config_reader.read(section='settings', key='domain')}/"
     # base_url = https://cloudtest.umajin.com

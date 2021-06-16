@@ -23,9 +23,9 @@ def pytest_runtest_makereport(item, call):
     setattr(item, "rep_" + rep.when, rep)
     return rep
 
+# if environment variable is set up for browsers (eg: in jenkins) use that.
+#      otherwise, use browser settings from conf.ini:
 
-
-# if envionment variable is set up for browsers (eg: in jenkins) use that. otherwise, use browser settings from conf.ini
 @pytest.fixture(params=str(os.getenv("Browsers")).strip().split(",") if os.getenv("Browsers") else config_reader.read(section="settings", key="browsers").strip().split(","), scope="class")
 def get_browser(request):
     selenium_grid_hub_ip_and_port = config_reader.read(section="settings", key="selenium_grid_hub_ip_and_port")
@@ -93,7 +93,6 @@ def get_browser(request):
 
     yield driver
     driver.quit()
-    print(os.getenv("BROWSERS"))
     logger.info(driver, f"{driver.name} closed")
 
 
