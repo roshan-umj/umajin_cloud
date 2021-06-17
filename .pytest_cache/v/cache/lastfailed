@@ -1,7 +1,4 @@
 {
-  "test_cases/test_profile_page.py::Test_ProfilePage::test_changing_profile[chrome]": true,
-  "test_cases/test_profile_page.py::Test_ProfilePage::test_changing_profile[edge]": true,
-  "test_cases/test_profile_page.py::Test_ProfilePage::test_changing_profile[safari]": true,
   "test_cases/test_user_log_in.py::Test_UserSignIn::test_page_links[safari]": true,
   "test_cases/test_user_log_in.py::Test_UserSignIn::test_preventing_unsuccessful_login_attempts[safari-admin\")-or \"1\"=\"1\"/*]": true,
   "test_cases/test_user_log_in.py::Test_UserSignIn::test_preventing_unsuccessful_login_attempts[safari-admin-admin]": true,
