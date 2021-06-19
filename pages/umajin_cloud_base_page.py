@@ -43,7 +43,7 @@ class UmajinCloudBase:
             WebDriverWait(self.driver, WAIT_TIME).until(
                 EC.visibility_of_element_located((By.ID, locator_string))).click()
 
-        log.debug(self.driver, f"click on {locator}")
+        log.debug(self.driver, f"click on {locator} : {locator_string}")
 
     def click_element_by_attribute_value(self, locator: str, attribute_name: str, value: str, by='xpath'):
         """Simulates clicking on the element. Finds an element by the attribute name and value.
@@ -66,7 +66,7 @@ class UmajinCloudBase:
             WebDriverWait(self.driver, WAIT_TIME).until(
                 EC.visibility_of_element_located((By.ID, locator_string))).click()
 
-        log.debug(self.driver, f"click on {locator}")
+        log.debug(self.driver, f"click on {locator}({attribute_name}:{value}) : {locator_string}. ")
 
     def send_keys(self, locator: str, value: str, by='xpath'):
         """Simulates typing into the element
@@ -90,7 +90,7 @@ class UmajinCloudBase:
             WebDriverWait(self.driver, WAIT_TIME).until(
                 EC.presence_of_element_located((By.ID, locator_string))).send_keys(value)
 
-        log.debug(self.driver, f"type in {locator}. value: {value}")
+        log.debug(self.driver, f"type in {locator} ({locator_string}). value: {value}")
 
     def clear(self, locator: str, by='xpath'):
             """Clears the text if it's a text entry element.
@@ -111,7 +111,7 @@ class UmajinCloudBase:
                 WebDriverWait(self.driver, WAIT_TIME).until(
                     EC.visibility_of_element_located((By.ID, locator_string))).clear()
 
-            log.debug(self.driver, f"clear text from {locator}")
+            log.debug(self.driver, f"clear text from  {locator} : {locator_string}")
 
     def select(self, locator: str, value: str, by='xpath'):
         """Simulates selecting an item from a dropdown
@@ -136,8 +136,7 @@ class UmajinCloudBase:
 
         select = Select(drop_down)
         select.select_by_visible_text(value)
-
-        log.debug(self.driver, "select '{value}' from {locator}")
+        log.debug(self.driver, f"select {value} from {locator} : {locator_string}")
 
     def go_back(self):
         """Goes back to the previous page
@@ -167,7 +166,7 @@ class UmajinCloudBase:
 
         action = ActionChains(driver=self.driver)
         action.move_to_element(element).perform()
-        log.debug(self.driver, f"move mouse pointer to {locator}")
+        log.debug(self.driver, f"move mouse pointer to {locator} : {locator_string}")
 
     def check_if_element_exists(self, locator: str, by='xpath') -> bool:
         """Checks if an element is present on the page
@@ -182,8 +181,9 @@ class UmajinCloudBase:
 
 
         """
-        log.debug(self.driver, f"checking availability of {locator}")
+
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
+        log.debug(self.driver, f"checking availability of {locator}: {locator_string}")
 
         try:
             if by == 'xpath':
@@ -234,13 +234,13 @@ class UmajinCloudBase:
                     WebDriverWait(self.driver, WAIT_TIME).until(
                         EC.visibility_of_element_located((By.ID, locator_string)))
             except NoSuchElementException:
-                log.error(f" {locator} not found")
+                log.error(f" {locator} (xpath: {locator_string} not found")
                 return False
             except TimeoutException:
-                log.error(f"Time out! {locator} cloud not be found on the page")
+                log.error(f"Time out! {locator} (xpath: {locator_string} cloud not be found on the page")
                 return False
             else:
-                log.debug(self.driver, f"{locator} found on the page!")
+                log.debug(self.driver, f"{locator} (xpath: {locator_string}) found on the page!")
         return True
 
     def get_text(self, locator: str, by='xpath'):
@@ -252,8 +252,9 @@ class UmajinCloudBase:
         :return:
          - text of an element
         """
-        log.debug(self.driver, f"get text from {locator}")
+
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
+        log.debug(self.driver, f"get text from {locator} : {locator_string}")
 
         if by == 'xpath':
             return WebDriverWait(self.driver, WAIT_TIME).until(
@@ -275,7 +276,7 @@ class UmajinCloudBase:
          """
 
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
-        log.debug(self.driver, f"get attribute {attribute_name} from element: {locator_string}")
+        log.debug(self.driver, f"get attribute {attribute_name} from element: {locator} ({locator_string})")
 
         if by == 'xpath':
             element = WebDriverWait(self.driver, WAIT_TIME).until(
@@ -300,7 +301,7 @@ class UmajinCloudBase:
          """
 
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
-        log.debug(self.driver, f"get attributes {attribute_name} from the list of elements: {locator_string}")
+        log.debug(self.driver, f"get attributes {attribute_name} from the list of elements: {locator}: {locator_string}")
 
         if by == 'xpath':
             elements = WebDriverWait(self.driver, WAIT_TIME).until(
@@ -326,8 +327,10 @@ class UmajinCloudBase:
          the element is searched by xpath.
         :return: list of elements
         """
-        log.debug(self.driver, f"get the element count of {locator}")
+
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
+        log.debug(self.driver, f"get a list of elements from {locator} : {locator_string}")
+
         if by == 'xpath':
             elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
                 EC.presence_of_all_elements_located((By.XPATH, locator_string)))
@@ -341,8 +344,6 @@ class UmajinCloudBase:
                 EC.presence_of_all_elements_located((By.ID, locator_string)))
             return elements_list
 
-
-
     def get_elements_count(self, locator: str, by='xpath') -> int:
         """Returns number of elements of the given xpath
 
@@ -352,8 +353,8 @@ class UmajinCloudBase:
         :return:
          - number of elements
         """
-        log.debug(self.driver, f"get the element count of {locator}")
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
+        log.debug(self.driver, f"get the element count of {locator}: {locator_string}")
         if by == 'xpath':
             elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
                 EC.presence_of_all_elements_located((By.XPATH, locator_string)))
@@ -375,8 +376,10 @@ class UmajinCloudBase:
          the element is searched by xpath.
         :return: a list of options from the select element
         """
-        log.debug(self.driver, f"get a list of options from the select element: {locator}")
+
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
+        log.debug(self.driver, f"get a list of options from the select element: {locator} ({locator_string})")
+
         if by == 'xpath':
             select = WebDriverWait(self.driver, WAIT_TIME).until(
                 EC.visibility_of_element_located((By.XPATH, locator_string)))
@@ -419,7 +422,7 @@ class UmajinCloudBase:
         """
 
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
-        log.debug(self.driver, f"get a list of elements from the elements list: {locator_string}")
+        log.debug(self.driver, f"get a list of elements from the elements list: {locator} ({locator_string})")
 
         if by == 'xpath':
             elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
@@ -444,16 +447,18 @@ class UmajinCloudBase:
         :param wait_time: (optional parameter) wait time in seconds. If not specified, it uses the default wait time specified in conf.ini
         """
         WebDriverWait(self.driver, wait_time).until(EC.url_changes(url))
+        log.debug(f"waiting until redirected to {url}")
 
     def attach_screenshot(self, screenshot_name="screenshot"):
         """gets a screenshot and attaches to the allure report.
         :param screenshot_name: (optional parameter) renames the screenshot in the report
         """
         allure.attach(self.driver.get_screenshot_as_png(), name=screenshot_name, attachment_type=AttachmentType.PNG, extension="png")
-
+        log.debug(f"attaching screenshot to allure report: {screenshot_name}")
     def attach_text(self, title, text):
         """attaches a given text to the report.
         :param title: A title for the description
         :param text: body of the text
         """
         allure.attach(body=text, name=title, attachment_type=AttachmentType.TEXT, extension="png")
+        log.debug(self.driver,f"attach text to allure report. title: {title}")
