@@ -99,14 +99,16 @@ def get_browser(request):
         driver.add_cookie(json.loads(cookie_json))
         logger.info(driver, f"cookie has been set to bypass login")
 
+
+
+        yield driver
+        driver.quit()
+        logger.info(driver, f"{driver.name} closed")
+
     except UnboundLocalError:
         logger.exception(f"Failed to initialize browser instance: '{request.param}'. Please check the configurations.")
     except selenium_exceptions.UnableToSetCookieException:
         logger.error(f"Failed to set cookie on {driver.name}")
-
-    yield driver
-    driver.quit()
-    logger.info(driver, f"{driver.name} closed")
 
 
 @pytest.fixture()
