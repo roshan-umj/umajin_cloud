@@ -106,7 +106,7 @@ def get_browser(request):
         logger.info(driver, f"{driver.name} closed")
 
     except UnboundLocalError:
-        logger.exception(f"Failed to initialize browser instance: '{request.param}'. Please check the configurations.")
+        logger.error(f"Failed to initialize browser instance: '{request.param}'. Please check the configurations.")
     except selenium_exceptions.UnableToSetCookieException:
         logger.error(f"Failed to set cookie on {driver.name}")
 

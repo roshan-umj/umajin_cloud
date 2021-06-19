@@ -1,5 +1,6 @@
 {
-  "test_cases/test_home_page.py::Test_HomePage::test_sign_up[safari]": true,
+  "test_cases/test_home_page.py::Test_HomePage::test_sign_up[safa]": true,
+  "test_cases/test_home_page.py::Test_HomePage::test_sign_up[safar]": true,
   "test_cases/test_profile_page.py::Test_ProfilePage::test_changing_profile[chrome]": true,
   "test_cases/test_profile_page.py::Test_ProfilePage::test_changing_profile[edge]": true,
   "test_cases/test_profile_page.py::Test_ProfilePage::test_changing_profile[safari]": true,

@@ -1,5 +1,7 @@
 import utilities.spreadsheet_data_provider as dp
+import utilities.logger as log
 
+logger = log.Logger(__name__)
 
 class TestCase:
     def __init__(self, test_case_id, page_name, story, display_name, description, severity, done, comments):
@@ -15,22 +17,23 @@ class TestCase:
 
 # reading test_coverage.xlsx and get test case data from it:
 
-
-records = dp.get_records("resources/data_sheets/test_coverage.xlsx", "test_cases")
-test_cases = []
-for record in records:
-    tc = TestCase(
-        test_case_id=record[2],
-        page_name=record[0],
-        story=record[1],
-        display_name=record[3],
-        description=record[4],
-        severity=record[5],
-        done=record[6],
-        comments=record[7]
-    )
-    test_cases.append(tc)
-
+try:
+    records = dp.get_records("resources/data_sheets/test_coverage.xlsx", "test_cases")
+    test_cases = []
+    for record in records:
+        tc = TestCase(
+            test_case_id=record[2],
+            page_name=record[0],
+            story=record[1],
+            display_name=record[3],
+            description=record[4],
+            severity=record[5],
+            done=record[6],
+            comments=record[7]
+        )
+        test_cases.append(tc)
+except FileNotFoundError:
+    logger.error("Failed to data from test_coverage.xlsx")
 
 def get_test_case(test_case_function_name) -> TestCase:
     for test_case in test_cases:
