@@ -33,17 +33,20 @@ class UmajinCloudBase:
          the element is searched by xpath.
         """
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
-        if by == 'xpath':
-            WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.XPATH, locator_string))).click()
-        elif by == 'css':
-            WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string))).click()
-        elif by == 'id':
-            WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.ID, locator_string))).click()
-
-        log.debug(self.driver, f"click on {locator} : {locator_string}")
+        try:
+            if by == 'xpath':
+                WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.XPATH, locator_string))).click()
+            elif by == 'css':
+                WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string))).click()
+            elif by == 'id':
+                WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.ID, locator_string))).click()
+        except NoSuchElementException:
+            log.error(f" {locator} not found")
+        else:
+            log.debug(self.driver, f"click on {locator} : {locator_string}")
 
     def click_element_by_attribute_value(self, locator: str, attribute_name: str, value: str, by='xpath'):
         """Simulates clicking on the element. Finds an element by the attribute name and value.
@@ -56,17 +59,20 @@ class UmajinCloudBase:
          the element is searched by xpath.
         """
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator) + f"[@{attribute_name}='{value}']"
-        if by == 'xpath':
-            WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.XPATH, locator_string))).click()
-        elif by == 'css':
-            WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string))).click()
-        elif by == 'id':
-            WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.ID, locator_string))).click()
-
-        log.debug(self.driver, f"click on {locator}({attribute_name}:{value}) : {locator_string}. ")
+        try:
+            if by == 'xpath':
+                WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.XPATH, locator_string))).click()
+            elif by == 'css':
+                WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string))).click()
+            elif by == 'id':
+                WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.ID, locator_string))).click()
+        except NoSuchElementException:
+            log.error(f" {locator} not found")
+        else:
+            log.debug(self.driver, f"click on {locator}({attribute_name}:{value}) : {locator_string}. ")
 
     def send_keys(self, locator: str, value: str, by='xpath'):
         """Simulates typing into the element
@@ -79,18 +85,20 @@ class UmajinCloudBase:
          the element is searched by xpath.
         """
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
-
-        if by == 'xpath':
-            WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_element_located((By.XPATH, locator_string))).send_keys(value)
-        elif by == 'css':
-            WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, locator_string))).send_keys(value)
-        elif by == 'id':
-            WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_element_located((By.ID, locator_string))).send_keys(value)
-
-        log.debug(self.driver, f"type in {locator} ({locator_string}). value: {value}")
+        try:
+            if by == 'xpath':
+                WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_element_located((By.XPATH, locator_string))).send_keys(value)
+            elif by == 'css':
+                WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_element_located((By.CSS_SELECTOR, locator_string))).send_keys(value)
+            elif by == 'id':
+                WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_element_located((By.ID, locator_string))).send_keys(value)
+        except NoSuchElementException:
+            log.error(f" {locator} not found")
+        else:
+            log.debug(self.driver, f"type in {locator} ({locator_string}). value: {value}")
 
     def clear(self, locator: str, by='xpath'):
             """Clears the text if it's a text entry element.
@@ -100,18 +108,20 @@ class UmajinCloudBase:
              the element is searched by xpath.
             """
             locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
-
-            if by == 'xpath':
-                WebDriverWait(self.driver, WAIT_TIME).until(
-                    EC.visibility_of_element_located((By.XPATH, locator_string))).clear()
-            elif by == 'css':
-                WebDriverWait(self.driver, WAIT_TIME).until(
-                    EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string))).clear()
-            elif by == 'id':
-                WebDriverWait(self.driver, WAIT_TIME).until(
-                    EC.visibility_of_element_located((By.ID, locator_string))).clear()
-
-            log.debug(self.driver, f"clear text from  {locator} : {locator_string}")
+            try:
+                if by == 'xpath':
+                    WebDriverWait(self.driver, WAIT_TIME).until(
+                        EC.visibility_of_element_located((By.XPATH, locator_string))).clear()
+                elif by == 'css':
+                    WebDriverWait(self.driver, WAIT_TIME).until(
+                        EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string))).clear()
+                elif by == 'id':
+                    WebDriverWait(self.driver, WAIT_TIME).until(
+                        EC.visibility_of_element_located((By.ID, locator_string))).clear()
+            except NoSuchElementException:
+                log.error(f" {locator} not found")
+            else:
+                log.debug(self.driver, f"clear text from  {locator} : {locator_string}")
 
     def select(self, locator: str, value: str, by='xpath'):
         """Simulates selecting an item from a dropdown
@@ -124,19 +134,22 @@ class UmajinCloudBase:
          the element is searched by xpath.
         """
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
-        if by == 'xpath':
-            drop_down = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.XPATH, locator_string)))
-        elif by == 'css':
-            drop_down = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string)))
-        elif by == 'id':
-            drop_down = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.ID, locator_string)))
-
-        select = Select(drop_down)
-        select.select_by_visible_text(value)
-        log.debug(self.driver, f"select {value} from {locator} : {locator_string}")
+        try:
+            if by == 'xpath':
+                drop_down = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.XPATH, locator_string)))
+            elif by == 'css':
+                drop_down = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string)))
+            elif by == 'id':
+                drop_down = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.ID, locator_string)))
+        except NoSuchElementException:
+            log.error(f" {locator} not found")
+        else:
+            select = Select(drop_down)
+            select.select_by_visible_text(value)
+            log.debug(self.driver, f"select {value} from {locator} : {locator_string}")
 
     def go_back(self):
         """Goes back to the previous page
@@ -154,19 +167,22 @@ class UmajinCloudBase:
 
         """
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
-        if by == 'xpath':
-            element = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.XPATH, locator_string)))
-        elif by == 'css':
-            element = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string)))
-        elif by == 'id':
-            element = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.ID, locator_string)))
-
-        action = ActionChains(driver=self.driver)
-        action.move_to_element(element).perform()
-        log.debug(self.driver, f"move mouse pointer to {locator} : {locator_string}")
+        try:
+            if by == 'xpath':
+                element = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.XPATH, locator_string)))
+            elif by == 'css':
+                element = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string)))
+            elif by == 'id':
+                element = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.ID, locator_string)))
+        except NoSuchElementException:
+            log.error(f" {locator} not found")
+        else:
+            action = ActionChains(driver=self.driver)
+            action.move_to_element(element).perform()
+            log.debug(self.driver, f"move mouse pointer to {locator} : {locator_string}")
 
     def check_if_element_exists(self, locator: str, by='xpath') -> bool:
         """Checks if an element is present on the page
@@ -199,8 +215,9 @@ class UmajinCloudBase:
         except NoSuchElementException:
             log.error(f" {locator} not found")
             return False
-        log.debug(self.driver, f"{locator} found on the page!")
-        return True
+        else:
+            log.debug(self.driver, f"{locator} found on the page!")
+            return True
 
     def check_if_elements_exist(self, *locators, by='xpath') -> bool:
         """Checks if an element is present on the page
@@ -255,16 +272,18 @@ class UmajinCloudBase:
 
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
         log.debug(self.driver, f"get text from {locator} : {locator_string}")
-
-        if by == 'xpath':
-            return WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.XPATH, locator_string))).text
-        elif by == 'css':
-            return WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string))).text
-        elif by == 'id':
-            return WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.ID, locator_string))).text
+        try:
+            if by == 'xpath':
+                return WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.XPATH, locator_string))).text
+            elif by == 'css':
+                return WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string))).text
+            elif by == 'id':
+                return WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.ID, locator_string))).text
+        except NoSuchElementException:
+            log.error(f" {locator} not found")
 
     def get_attribute_from_element(self, locator: str, attribute_name: str, by='xpath') -> str:
         """Returns the value of the attribute from the given element
@@ -277,19 +296,21 @@ class UmajinCloudBase:
 
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
         log.debug(self.driver, f"get attribute {attribute_name} from element: {locator} ({locator_string})")
-
-        if by == 'xpath':
-            element = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.XPATH, locator_string)))
-            return element.get_attribute(attribute_name)
-        elif by == 'css':
-            element = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string)))
-            return element.get_attribute(attribute_name)
-        elif by == 'id':
-            element = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.ID, locator_string)))
-            return element.get_attribute(attribute_name)
+        try:
+            if by == 'xpath':
+                element = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.XPATH, locator_string)))
+                return element.get_attribute(attribute_name)
+            elif by == 'css':
+                element = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string)))
+                return element.get_attribute(attribute_name)
+            elif by == 'id':
+                element = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.ID, locator_string)))
+                return element.get_attribute(attribute_name)
+        except NoSuchElementException:
+            log.error(f" {locator} not found")
 
     def get_attribute_from_list_of_elements(self, locator: str, attribute_name: str, by='xpath') -> list:
         """Returns a list of values from the given attribute of the given list of elements
@@ -302,20 +323,20 @@ class UmajinCloudBase:
 
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
         log.debug(self.driver, f"get attributes {attribute_name} from the list of elements: {locator}: {locator_string}")
-
-        if by == 'xpath':
-            elements = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_all_elements_located((By.XPATH, locator_string)))
-            attributes_list = [element.get_attribute(attribute_name) for element in elements]
-            return attributes_list
-        elif by == 'css':
-            elements = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_all_elements_located((By.CSS_SELECTOR, locator_string)))
-            attributes_list = [element.get_attribute(attribute_name) for element in elements]
-            return attributes_list
-        elif by == 'id':
-            elements = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_all_elements_located((By.ID, locator_string)))
+        try:
+            if by == 'xpath':
+                elements = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_all_elements_located((By.XPATH, locator_string)))
+            elif by == 'css':
+                elements = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_all_elements_located((By.CSS_SELECTOR, locator_string)))
+            elif by == 'id':
+                elements = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_all_elements_located((By.ID, locator_string)))
+        except NoSuchElementException:
+            log.error(f" {locator} not found")
+            return []
+        else:
             attributes_list = [element.get_attribute(attribute_name) for element in elements]
             return attributes_list
 
@@ -330,19 +351,22 @@ class UmajinCloudBase:
 
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
         log.debug(self.driver, f"get a list of elements from {locator} : {locator_string}")
+        try:
+            if by == 'xpath':
+                elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_all_elements_located((By.XPATH, locator_string)))
+            elif by == 'css':
+                elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_all_elements_located((By.CSS_SELECTOR, locator_string)))
+            elif by == 'id':
+                elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_all_elements_located((By.ID, locator_string)))
+        except NoSuchElementException:
+            log.error(f" {locator} not found")
+            return []
+        else:
+            return elements_list
 
-        if by == 'xpath':
-            elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_all_elements_located((By.XPATH, locator_string)))
-            return elements_list
-        elif by == 'css':
-            elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_all_elements_located((By.CSS_SELECTOR, locator_string)))
-            return elements_list
-        elif by == 'id':
-            elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_all_elements_located((By.ID, locator_string)))
-            return elements_list
 
     def get_elements_count(self, locator: str, by='xpath') -> int:
         """Returns number of elements of the given xpath
@@ -355,17 +379,19 @@ class UmajinCloudBase:
         """
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
         log.debug(self.driver, f"get the element count of {locator}: {locator_string}")
-        if by == 'xpath':
-            elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_all_elements_located((By.XPATH, locator_string)))
-            return len(elements_list)
-        elif by == 'css':
-            elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_all_elements_located((By.CSS_SELECTOR, locator_string)))
-            return len(elements_list)
-        elif by == 'id':
-            elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_all_elements_located((By.ID, locator_string)))
+        try:
+            if by == 'xpath':
+                elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_all_elements_located((By.XPATH, locator_string)))
+            elif by == 'css':
+                elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_all_elements_located((By.CSS_SELECTOR, locator_string)))
+            elif by == 'id':
+                elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_all_elements_located((By.ID, locator_string)))
+        except NoSuchElementException:
+            log.error(f" {locator} not found")
+        else:
             return len(elements_list)
 
     def get_options_list_from_select(self, locator: str, by='xpath') -> []:
@@ -379,24 +405,24 @@ class UmajinCloudBase:
 
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
         log.debug(self.driver, f"get a list of options from the select element: {locator} ({locator_string})")
-
-        if by == 'xpath':
-            select = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.XPATH, locator_string)))
+        try:
+            if by == 'xpath':
+                select = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.XPATH, locator_string)))
+            elif by == 'css':
+                select = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string)))
+            elif by == 'id':
+                select = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.visibility_of_element_located((By.ID, locator_string)))
+        except NoSuchElementException:
+            log.error(f" {locator} not found")
+            return []
+        else:
             options = [item.text for item in select.find_elements_by_tag_name("option")]
             return options
 
-        elif by == 'css':
-            select = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, locator_string)))
-            options = [item.text for item in select.find_elements_by_tag_name("option")]
-            return options
 
-        elif by == 'id':
-            select = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.visibility_of_element_located((By.ID, locator_string)))
-            options = [item.text for item in select.find_elements_by_tag_name("option")]
-            return options
 
     def get_text_from_list_of_elements(self, locator: str, by='xpath') -> []:
         """Returns a list of text values from a given list of elements
@@ -423,20 +449,19 @@ class UmajinCloudBase:
 
         locator_string = config_reader.read(section=CONFIG_FILE_SECTION, key=locator)
         log.debug(self.driver, f"get a list of elements from the elements list: {locator} ({locator_string})")
-
-        if by == 'xpath':
-            elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_all_elements_located((By.XPATH, locator_string)))
-            list_of_inner_texts = [item.text for item in elements_list]
-            return list_of_inner_texts
-        elif by == 'css':
-            elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_all_elements_located((By.CSS_SELECTOR, locator_string)))
-            list_of_inner_texts = [item.text for item in elements_list]
-            return list_of_inner_texts
-        elif by == 'id':
-            elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
-                EC.presence_of_all_elements_located((By.ID, locator_string)))
+        try:
+            if by == 'xpath':
+                elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_all_elements_located((By.XPATH, locator_string)))
+            elif by == 'css':
+                elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_all_elements_located((By.CSS_SELECTOR, locator_string)))
+            elif by == 'id':
+                elements_list = WebDriverWait(self.driver, WAIT_TIME).until(
+                    EC.presence_of_all_elements_located((By.ID, locator_string)))
+        except NoSuchElementException:
+            log.error(f" {locator} not found")
+        else:
             list_of_inner_texts = [item.text for item in elements_list]
             return list_of_inner_texts
 
@@ -447,14 +472,14 @@ class UmajinCloudBase:
         :param wait_time: (optional parameter) wait time in seconds. If not specified, it uses the default wait time specified in conf.ini
         """
         WebDriverWait(self.driver, wait_time).until(EC.url_changes(url))
-        log.debug(f"waiting until redirected to {url}")
+        log.debug(self.driver,f"waiting until redirected to {url}")
 
     def attach_screenshot(self, screenshot_name="screenshot"):
         """gets a screenshot and attaches to the allure report.
         :param screenshot_name: (optional parameter) renames the screenshot in the report
         """
         allure.attach(self.driver.get_screenshot_as_png(), name=screenshot_name, attachment_type=AttachmentType.PNG, extension="png")
-        log.debug(f"attaching screenshot to allure report: {screenshot_name}")
+        log.debug(self.driver, f"attaching screenshot to allure report: {screenshot_name}")
     def attach_text(self, title, text):
         """attaches a given text to the report.
         :param title: A title for the description
