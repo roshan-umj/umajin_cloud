@@ -154,7 +154,8 @@ class UmajinCloudBase:
     def go_back(self):
         """Goes back to the previous page
         """
-        self.driver.back()
+        # self.driver.back()              # back() doesn't work on safari.
+        self.driver.execute_script("window.history.go(-1)")
         log.debug(self.driver, f"go back to the previous page")
 
     def move_to(self, locator: str, by='xpath'):
