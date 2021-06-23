@@ -28,6 +28,7 @@ class Test_ProfilePage(BaseTest):
     @allure.story(test_cases.get_test_case("test_changing_profile").story)
     @allure.title(test_cases.get_test_case("test_changing_profile").display_name)
     @allure.severity(test_cases.get_test_case("test_changing_profile").severity)
+    @pytest.mark.serial
     def test_changing_profile(self):
         profile_page = profile.ProfilePage(self.driver)
 
