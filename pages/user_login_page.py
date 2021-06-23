@@ -1,6 +1,6 @@
 from pages.common_imports import *
 import pages.project_list as project_list
-import pages.forgot_password_page as forgot_password_page
+import pages.reset_password_page as reset_password_page
 import pages.umajin_website_home_page as home_page
 
 log = Logger(__name__)
@@ -24,13 +24,13 @@ class Login(UmajinCloudBase):
         log.info(self.driver, f"attempt to sign in. username: {username} password: {password}")
         return project_list.ProjectList(driver=self.driver)
 
-    def open_forgot_password_page(self):
+    def open_reset_password_page(self):
         """clicks on Forgot Password and open Forgot Password page
 
         :return: ForgotPassword page object
         """
         self.click(locator="btn_forgot_password")
-        return forgot_password_page.ForgotPassword(self.driver)
+        return reset_password_page.ResetPassword(self.driver)
 
     def open_sign_up_page(self):
         """clicks on Sign up and open Sign up page

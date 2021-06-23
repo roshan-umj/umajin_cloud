@@ -51,11 +51,11 @@ class Test_UserSignIn(BaseTest):
         login_page = login.Login(self.driver)
 
         # check if forgot password link works:
-        forgot_password_page = login_page.open_forgot_password_page()
+        reset_password_page = login_page.open_reset_password_page()
         # reset_password page has the same page title as the login page so checking the url instead of the title:
-        assert forgot_password_page.is_url(urls.reset_password_page), \
+        assert reset_password_page.is_url(urls.reset_password_page), \
             f"Forgot password?' link didn't load the expected url: {urls.reset_password_page}"
-        forgot_password_page.go_back()
+        reset_password_page.go_back()
 
         # check if sign up link works:
         home_page = login_page.open_sign_up_page()
