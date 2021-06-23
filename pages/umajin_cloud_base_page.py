@@ -254,7 +254,7 @@ class UmajinCloudBase:
                 log.error(f" {locator} (xpath: {locator_string} not found")
                 return False
             except TimeoutException:
-                log.error(f"Time out! {locator} (xpath: {locator_string} cloud not be found on the page")
+                log.error(f"time out! {locator} (xpath: {locator_string} cloud not be found on the page")
                 return False
             else:
                 log.debug(self.driver, f"{locator} (xpath: {locator_string}) found on the page!")
@@ -284,6 +284,75 @@ class UmajinCloudBase:
                     EC.visibility_of_element_located((By.ID, locator_string))).text
         except NoSuchElementException:
             log.error(f" {locator} not found")
+
+    def is_title(self, expected_title: str) -> bool:
+        """An expectation for checking the title of a page.
+    the expected title must be an exact match.
+
+        :param expected_title: text to match with the current page title
+
+        :return:
+         - True if the title matches, false otherwise.
+        """
+        log.debug(self.driver, f"check if the page tittle is correct. expected title: {expected_title}")
+        try:
+            return WebDriverWait(self.driver, WAIT_TIME).until(EC.title_is(expected_title))
+
+        except TimeoutException:
+            log.error(f" timeout! Current page title is not {expected_title}")
+            return False
+
+    def title_contains(self, expected_title: str) -> bool:
+        """An expectation for checking that the title contains a case-sensitive
+    substring. expected title is the fragment of title expected
+        :param expected_title: text to check if current page title contains
+
+        :return:
+         - True when the title matches, False otherwise
+        """
+        log.debug(self.driver, f"check if the page tittle contains: {expected_title}")
+        try:
+            return WebDriverWait(self.driver, WAIT_TIME).until(EC.title_contains(expected_title))
+        except TimeoutException:
+            log.error(f" timeout! Current page title is not {expected_title}")
+            return False
+
+    def url_contains(self, expected_url: str) -> bool:
+        """An expectation for checking that the current url contains a case-sensitive substring.
+
+        :param expected_url: the fragment of url expected
+
+        :return: True when the url matches, False otherwise
+        """
+        log.debug(self.driver, f"check if the current url contains: {expected_url}")
+        try:
+            return WebDriverWait(self.driver, WAIT_TIME).until(EC.url_contains(expected_url))
+        except TimeoutException:
+            log.error(f" timeout! current url doesn't contain {expected_url}")
+            return False
+
+    def is_url(self, expected_url: str) -> bool:
+        """An expectation for checking that the current url is an exact match to the expected url.
+
+        :param expected_url: Url to match with the current url
+
+        :return: True if the the url matches, False otherwise
+        """
+        log.debug(self.driver, f"check if the current url matched to : {expected_url}")
+        try:
+            return WebDriverWait(self.driver, WAIT_TIME).until(EC.url_contains(expected_url))
+        except TimeoutException:
+            log.error(f" timeout! current url is not {expected_url}")
+            return False
+
+    def wait_until_redirected(self, url: str, wait_time: int = WAIT_TIME):
+        """Waits until url redirection is completed.
+
+        :param url: url expected after redirection
+        :param wait_time: (optional parameter) wait time in seconds. If not specified, it uses the default wait time specified in conf.ini
+        """
+        WebDriverWait(self.driver, wait_time).until(EC.url_changes(url))
+        log.debug(self.driver,f"waiting until redirected to {url}")
 
     def get_attribute_from_element(self, locator: str, attribute_name: str, by='xpath') -> str:
         """Returns the value of the attribute from the given element
@@ -464,15 +533,6 @@ class UmajinCloudBase:
         else:
             list_of_inner_texts = [item.text for item in elements_list]
             return list_of_inner_texts
-
-    def wait_until_redirected(self, url: str, wait_time: int = WAIT_TIME):
-        """Waits until url redirection is completed.
-
-        :param url: url expected after redirection
-        :param wait_time: (optional parameter) wait time in seconds. If not specified, it uses the default wait time specified in conf.ini
-        """
-        WebDriverWait(self.driver, wait_time).until(EC.url_changes(url))
-        log.debug(self.driver,f"waiting until redirected to {url}")
 
     def attach_screenshot(self, screenshot_name="screenshot"):
         """gets a screenshot and attaches to the allure report.

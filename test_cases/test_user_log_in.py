@@ -39,10 +39,9 @@ class Test_UserSignIn(BaseTest):
         assert login_page.get_text("lbl_password") == "Password", 'Failed to match text : "Password" '
         assert login_page.get_text("btn_sign_in") == "Sign in", 'Failed to match text : "Sign in" '
         assert login_page.get_text("btn_sign_Up") == "Sign Up", 'Failed to match text : "Sign up" '
-        assert login_page.get_text(
-            "btn_forgot_password") == "Forgot password?", 'Failed to match text : "Forgot password?" '
+        assert login_page.get_text("btn_forgot_password") == "Forgot password?", 'Failed to match text : "Forgot password?"'
 
-        assert login_page.title == "Umajin Cloud"
+        assert login_page.is_title("Umajin Cloud"), "login page title is not correct"
 
     @allure.story(test_cases.get_test_case("test_page_links").story)
     @allure.title(test_cases.get_test_case("test_page_links").display_name)
@@ -53,14 +52,16 @@ class Test_UserSignIn(BaseTest):
 
         # check if forgot password link works:
         forgot_password_page = login_page.open_forgot_password_page()
-        assert forgot_password_page.url == urls.rest_password_page, "Forgot password?' link url is not correct"
+        # reset_password page has the same page title as the login page so checking the url instead of the title:
+        assert forgot_password_page.is_url(urls.reset_password_page), \
+            f"Forgot password?' link didn't load the expected url: {urls.reset_password_page}"
         forgot_password_page.go_back()
 
         # check if sign up link works:
         home_page = login_page.open_sign_up_page()
         # sign up link https://www.umajin.com/create_account/ redirects to https://www.umajin.com/#download
         login_page.wait_until_redirected(urls.sign_up_to_download_page)
-        assert home_page.title == "Umajin Home - Umajin", "On sign up button click: Umajin home page title did not match. "
+        assert home_page.is_title("Umajin Home - Umajin"), "On sign up button click: Umajin home page title did not match."
         home_page.go_back()
 
 
@@ -88,7 +89,8 @@ class Test_UserSignIn(BaseTest):
         password = config_reader.read(section="basic_information", key="test_account_password")
         project_list = login_page.log_in(user_name, password)
 
-        assert project_list.title == "Umajin Cloud | Project List", "Project list title did not match"
+        assert project_list.is_title("Umajin Cloud | Project List"), "Project list title did not match"
         login_page = project_list.sign_out()
-        assert login_page.check_if_element_exists('lbl_logout_successful_msg'), "Successful log out message not found in the sign in page after successfully logging out"
+        assert login_page.check_if_element_exists('lbl_logout_successful_msg'), \
+            "Successful log out message not found in the sign in page after successfully logging out"
 

@@ -20,6 +20,6 @@ else:
 
 project_list = base_url + "index.php"
 sign_up_to_download_page = home_page + "#download"
-rest_password_page = base_url + "reset_password.php"
+reset_password_page = base_url + "reset_password.php"
 project_link = base_url + "index.php?view=dashboard&projectid="
 profile_page = base_url + "index.php?view=profile"
