@@ -17,7 +17,7 @@ class Logger:
         # get the name of the log file form the configurations file
         log_file_name = config_reader.read(section="settings", key="log_file_name")
 
-        log_line_format = logging.Formatter('%(asctime)s %(name)s [%(levelname)s] %(message)s')
+        log_line_format = logging.Formatter('%(name)s [%(levelname)s] %(message)s')
 
         # file handler is for the log file stored in 'logs' folder
         file_handler = logging.FileHandler(filename=f"logs/{log_file_name}", mode="a")
@@ -34,7 +34,7 @@ class Logger:
         self.logger.addHandler(stream_handler)
 
     def debug(self, driver, log_message):
-        self.logger.info(msg=f"{driver.name}: {log_message}")
+        self.logger.debug(msg=f"{driver.name}: {log_message}")
 
     def info(self, driver, log_message):
         self.logger.info(msg=f"{driver.name}: {log_message}")

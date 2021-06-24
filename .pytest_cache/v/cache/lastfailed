@@ -1,4 +1,5 @@
 {
   "test_cases/test_home_page.py::Test_HomePage::test_sign_up[safa]": true,
-  "test_cases/test_home_page.py::Test_HomePage::test_sign_up[safar]": true
+  "test_cases/test_home_page.py::Test_HomePage::test_sign_up[safar]": true,
+  "test_cases/test_user_log_in.py::Test_UserSignIn::test_successful_login[safari]": true
 }
