@@ -33,20 +33,38 @@ class Logger:
         self.logger.addHandler(file_handler)
         self.logger.addHandler(stream_handler)
 
-    def debug(self, driver, log_message):
-        self.logger.debug(msg=f"{driver.name}: {log_message}")
+    def debug(self, log_message, driver=None):
+        if driver:
+            self.logger.debug(msg=f"{driver.name}: {log_message}")
+        else:
+            self.logger.debug(msg=log_message)
 
-    def info(self, driver, log_message):
-        self.logger.info(msg=f"{driver.name}: {log_message}")
+    def info(self, log_message, driver=None):
+        if driver:
+            self.logger.info(msg=f"{driver.name}: {log_message}")
+        else:
+            self.logger.info(msg=log_message)
 
-    def warning(self, log_message):
-        self.logger.warning(msg=log_message)
+    def warning(self, log_message, driver=None):
+        if driver:
+            self.logger.warning(msg=f"{driver.name}: {log_message}")
+        else:
+            self.logger.warning(msg=log_message)
 
-    def error(self, log_message):
-        self.logger.error(msg=log_message)
+    def error(self, log_message, driver=None):
+        if driver:
+            self.logger.error(msg=f"{driver.name}: {log_message}")
+        else:
+            self.logger.error(msg=log_message)
 
-    def critical(self, log_message):
-        self.logger.critical(msg=log_message)
+    def critical(self, log_message, driver=None):
+        if driver:
+            self.logger.critical(msg=f"{driver.name}: {log_message}")
+        else:
+            self.logger.critical(msg=log_message)
 
-    def exception(self, log_message):
-        self.logger.exception(msg=log_message)
+    def exception(self, log_message, driver=None):
+        if driver:
+            self.logger.exception(msg=f"{driver.name}: {log_message}")
+        else:
+            self.logger.exception(msg=log_message)

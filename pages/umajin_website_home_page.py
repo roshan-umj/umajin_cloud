@@ -27,5 +27,5 @@ class HomePage(UmajinCloudBase):
         self.send_keys(locator="sel_signup_industry", value=industry)
         self.click(locator="btn_signup_submit")
 
-        log.info(self.driver, f"sign up the user: {first_name} {last_name}")
+        log.info(f"sign up the user: {first_name} {last_name}", self.driver)
 

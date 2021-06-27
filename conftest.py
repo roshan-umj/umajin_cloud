@@ -78,7 +78,7 @@ def get_browser(request):
                          f" Please make sure selenium grid/ local browser drivers are configured correctly")
 
     try:
-        logger.info(driver, f"initializing {driver.name}")
+        logger.info(f"initializing {driver.name}", driver)
         request.cls.driver = driver
         # getting the url in advance to set a cookie to bypass the login
         driver.get(urls.base_url)
@@ -97,13 +97,13 @@ def get_browser(request):
                 cookie_json = config_reader.read(section="settings", key="cookie_live")
 
         driver.add_cookie(json.loads(cookie_json))
-        logger.info(driver, f"cookie has been set to bypass login")
+        logger.info(f"cookie has been set to bypass login", driver)
 
 
 
         yield driver
         driver.quit()
-        logger.info(driver, f"{driver.name} closed")
+        logger.info(f"{driver.name} closed", driver)
 
     except UnboundLocalError:
         logger.error(f"Failed to initialize browser instance: '{request.param}'. Please check the configurations.")

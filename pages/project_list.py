@@ -26,7 +26,7 @@ class ProjectList(UmajinCloudBase):
         """Signs out from the currently logged in account
         """
         self.click(locator="btn_sign_out")
-        log.info(self.driver, "Signing out from the currently logged in account")
+        log.info("Signing out from the currently logged in account", self.driver)
         return login.Login(self.driver)
 
     def switch_view(self, view: str):
@@ -36,10 +36,10 @@ class ProjectList(UmajinCloudBase):
         """
         if view.lower() == 'list':
             self.click(locator="btn_list_view")
-            log.info(self.driver, "Switching the project list to list view")
+            log.info("Switching the project list to list view", self.driver)
         else:
             self.click(locator="btn_grid_view")
-            log.info(self.driver, "Switching the project list to grid view")
+            log.info("Switching the project list to grid view", self.driver)
 
 
     def get_list_of_projects_from_grid_view(self):
